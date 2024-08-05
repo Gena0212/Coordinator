@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import React, {useEffect, useState } from 'react'
+import {gapi} from 'gapi-script'
+import EventItem from "./components/EventItem.js"
 
 function App() {
+  
+
+  const calendarID= process.env.CALENDAR_ID
+  const apiKey = process.env.GOOGLE_API_KEY
+  const accessToken = process.env.GOOGLE_ACCESS_TOKEN
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Coordinator app</h1>
     </div>
   );
 }
