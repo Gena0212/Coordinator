@@ -13,9 +13,7 @@ function App() {
    */
   
   const oauth2Client = new google.auth.OAuth2(
-    '475553630933-f5mu6cflagmam5s3isbho3n3apii9ka3.apps.googleusercontent.com',
-    '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',
-    'http://localhost:8080'
+    
   );
 
   // Access scopes for read-only Drive activity.
