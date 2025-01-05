@@ -1,10 +1,10 @@
-import WeekCalendar from '../../components/WeekCalendar/WeekCalendar';
+import Calendar from '../../components/Calendar/Calendar';
 import './HomePage.scss';
 
 
 function HomePage(){
     return (
-        <WeekCalendar/>
+        <Calendar/>
     )
 }
 
