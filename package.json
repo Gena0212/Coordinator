@@ -14,6 +14,11 @@
     "@fullcalendar/daygrid": "^6.1.15",
     "@fullcalendar/react": "^6.1.15",
     "@fullcalendar/timegrid": "^6.1.15",
+    "axios": "^1.7.9",
+    "buffer": "^6.0.3",
+    "google-auth-library": "^9.15.0",
+    "googleapis": "^144.0.0",
+    "openauth": "^0.1.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sass": "^1.83.1"
