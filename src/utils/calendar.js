@@ -1,7 +1,9 @@
 import { google } from 'googleapis';
+import { GoogleAuth } from 'google-auth-library';
+console.log(google)
 const OAuth2 = google.auth.OAuth2;
 
-const SCOPES = ['https://www.googleapis.com/auth/calendar.readonly'];
+const SCOPES = new GoogleAuth(['https://www.googleapis.com/auth/calendar.readonly']);
 
 // Initialize the OAuth2 client
 const oauth2Client = new OAuth2(
@@ -22,7 +24,8 @@ const calendar = google.calendar({
 });
 
 // Function to fetch calendar events
-export const getCalendarEvents = async () => {
+const getCalendarEvents = async () => {
+  console.log('testing')
   try {
     const response = await calendar.events.list({
       calendarId: 'primary', // Use 'primary' for the user's primary calendar
@@ -40,4 +43,6 @@ export const getCalendarEvents = async () => {
     throw error;
   }
 };
+
+export default getCalendarEvents;
 
