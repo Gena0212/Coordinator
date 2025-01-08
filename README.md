@@ -3,7 +3,7 @@
 
 ## Overview
 
-The coordinator app helps you coordinate times you can meet with your friends! How? By combining your google calendars (with some built in privacy).
+The coordinator app is a visual aid to help you coordinate meetup times with your friends! How? By combining your google calendars (with some built in privacy settings).
 
 ### Problem Space
 
