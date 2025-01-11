@@ -1,61 +1,21 @@
-export default function LoginForm() {
+export default function LoginForm({setFormData, handleSubmit}) {
     const [errorMessage, setErrorMessage] = useState("");
-    const [formData, setFormData] = useState({
-        firstName: "",
-        lastName: "",
-        email: "",
-        password: "",
-    });
+
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
       };
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-        setErrorMessage("");
-    
-        if (!formData.email || !formData.password) {
-          setErrorMessage("You must provide a username and a password");
-          return;
-        }
-    
-        // Check the format of the email address via a regular expression
-        if (!emailRegex.test(formData.email)) {
-          setErrorMessage("The email address is not valid. Expected format: x@x.xx");
-          return;
-        }
-    
-        try {
-          // To login, send a POST request to the `/users/login` endpoint
-          const { data } = await axios.post(
-            `${import.meta.env.VITE_API_BASE_URL}/users/login`,
-            {
-              email: formData.email,
-              password: formData.password,
-            }
-          );
-    
-          // To ensure the frontend stays logged in, store the JWT in localStorage
-          localStorage.setItem("authToken", data.authToken);
-    
-          setSuccess(true);
-          setTimeout(() => {
-            navigate("/profile");
-          }, 2000);
-        } catch (error) {
-          setErrorMessage(error.response.data.message);
-        }
-    };
+
 
     return (     
     <>
         <form onSubmit={handleSubmit}>
-          <label htmlFor="firstName">Username</label>
+          <label htmlFor="email">Username</label>
           <input
             type="text"
-            name="firstName"
-            value={formData.firstName}
+            name="email"
+            value={formData.email}
             onChange={handleInputChange}
           />
           <label htmlFor="password">Password</label>
@@ -67,7 +27,6 @@ export default function LoginForm() {
           />
         </form>
         <button>Sign In</button>
-        {/* <button onClick={handleLogin}>Login with Google</button> */}
     </>
     )
 }
