@@ -2,11 +2,13 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 
-const Login = () => {
+const LoginPage = () => {
   const [accessToken, setAccessToken] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
   const [formData, setFormData] = useState({
-    username: "",
+    firstName: "",
+    lastName: "",
+    email: "",
     password: "",
   });
 
@@ -104,23 +106,15 @@ const Login = () => {
       {accessToken ? (
         <div>
           <p>Logged in successfully!</p>
-          <h2>Upcoming Events</h2>
-          {/* <ul>
-            {calendarEvents.map((event) =>
-
- (
-              <li key={event.id}>{event.summary}</li>
-            ))}
-          </ul> */}
         </div>
       ) : (
         <>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username</label>
+            <label htmlFor="firstName">Username</label>
             <input
               type="text"
-              name="username"
-              value={formData.username}
+              name="firstName"
+              value={formData.firstName}
               onChange={handleInputChange}
             />
             <label htmlFor="password">Password</label>
