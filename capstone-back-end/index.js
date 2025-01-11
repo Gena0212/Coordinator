@@ -3,10 +3,13 @@
 import { google } from "googleapis";
 import express from "express";
 import * as dotenv from "dotenv";
+import cors from "cors";
+
 
 dotenv.config();
 
 const app = express();
+app.use(cors());
 
 const port = process.env.PORT || 8000;
 
@@ -68,21 +71,7 @@ app.get("/events", async (req, res) => {
   }
 });
 
-const event = {
-  summary: "Tech Talk with Arindam",
-  location: "Google Meet",
 
-  description: "Demo event for Arindam's Blog Post.",
-  start: {
-    dateTime: "2024-03-14T19:30:00+05:30",
-    timeZone: "Asia/Kolkata",
-  },
-  end: {
-    dateTime: "2024-03-14T20:30:00+05:30",
-    timeZone: "Asia/Kolkata",
-  },
-  attendees: [{ email: "gena.jey@gmail.com" }],
-};
 
 app.get("/create-event", async (req, res) => {
   try {
