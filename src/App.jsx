@@ -14,10 +14,10 @@ function App() {
   
   async function auth(){
     try {
-      const response = await axios.post('http://127.0.0.1:3000/request')
-      const data = await response.json();
-      console.log(data);
-      navigate(data.url);
+      const response = await axios.post('http://localhost:8000/request')
+
+      console.log(response.data);
+      navigate(response.data.url);
     } catch (error) {
       console.log(error)
     }
