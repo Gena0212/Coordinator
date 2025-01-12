@@ -4,7 +4,8 @@ import './HomePage.scss';
 
 function HomePage(){
     return (
-        <Calendar/>
+        <h1>Welcome Home!</h1>
+        // <Calendar/>
     )
 }
 

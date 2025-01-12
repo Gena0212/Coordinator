@@ -2,8 +2,10 @@ import { useState } from 'react'
 import axios from "axios";
 
 import './App.css'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
+import HomePage from './pages/HomePage/HomePage'
 import googleButton from './assets/btn_google_signin_dark_pressed_web.png'
 
 function App() {
@@ -24,11 +26,18 @@ function App() {
   }
 
   return (
-    <>  
-      <button type="button" onClick={()=> auth()}>
-            <img src={googleButton} alt='google sign in'/>
-      </button>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={
+          <button type="button" onClick={()=> auth()}>
+                <img src={googleButton} alt='google sign in'/>
+          </button>
+        } />
+        <Route path="/home" element={<HomePage/>}/>
+      </Routes>
+    </BrowserRouter>
+    
+    
   )
 }
 
