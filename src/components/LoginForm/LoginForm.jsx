@@ -7,7 +7,6 @@ export default function LoginForm({setFormData, handleSubmit}) {
       };
 
 
-
     return (     
     <>
         <form onSubmit={handleSubmit}>
