@@ -3,7 +3,7 @@
 
 ## Overview
 
-The coordinator app is a visual aid to help you coordinate meetup times with your friends! How? By combining your google calendars (with some built in privacy settings).
+The coordinator app is a visual aid to help you coordinate meetup times with your friends! How? By combining your google calendars (with some built in privacy settings so that other people can only see when you are available and when you are not).
 
 ### Problem Space
 
@@ -11,21 +11,29 @@ In this day and age people are finding it difficult to find a time when they are
 
 ### User Profile
 
-Who will use your app? How will they use it? Add any special considerations that your app must take into account.
+The app user is any individual who wants any easy way to see when one or more people are available. The user will log into the app, and give the app access to their google calendar information. The app must be intuitive to any ordinary technology user.
 
 ### Features
 
-List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
+The ability to create group with other app users. When the group is clicked on, a calendar will pop up which visually shows when all group members are free, only some members are free or no one is free. When a group is created, users added to the group will have to accept the invite into the group and give consent to some of their google calendar info being shared with others in the group. 
+
+A login and register page that stores data in a sql database.
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+Access google calendar data for each user using Google Calendar API. From past experience, may have issues connecting to the Google Calendar API. May have issues with access tokens and getting refresh tokens, security of the access token, and updating data from Google Calendar API instantly (this may not be possible).
+
+React, HTML, CSS, Javascript for the frontend.
+
+Full Calendar to implement a calendar component in the frontend.
+
+Node, Express, MySql for the backend.
 
 ### APIs
 
-List any external sources of data that will be used in your app.
+Google Calendar API
 
 ### Sitemap
 
