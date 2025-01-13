@@ -1,6 +1,4 @@
-export default function LoginForm({setFormData, handleSubmit}) {
-    const [errorMessage, setErrorMessage] = useState("");
-
+export default function LoginForm({errorMessage, formData, setFormData, handleSubmit}) {
 
     const handleInputChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -26,6 +24,7 @@ export default function LoginForm({setFormData, handleSubmit}) {
           />
         </form>
         <button>Sign In</button>
+        {errorMessage && <p>{errorMessage}</p>}
     </>
     )
 }

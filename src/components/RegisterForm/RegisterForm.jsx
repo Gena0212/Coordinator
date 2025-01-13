@@ -1,7 +1,11 @@
 import { useState } from 'react';
 import './RegisterForm.scss'
+import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { emailRegex } from "../../../lib/regex";
 
 export default function RegisterForm(){
+  const navigate = useNavigate();
     const [success, setSuccess] = useState(false);
     const [errorMessage, setErrorMessage] = useState("");
     

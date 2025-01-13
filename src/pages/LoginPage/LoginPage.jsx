@@ -4,6 +4,7 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 
 
 const LoginPage = () => {
+  const [errorMessage, setErrorMessage] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
   
   const [formData, setFormData] = useState({
@@ -26,6 +27,21 @@ const LoginPage = () => {
 
     getAuthorizationCode();
   }, []);
+
+  function navigate(url){
+    window.location.href = url;
+  }
+  
+  async function auth(){
+    try {
+      const response = await axios.post(`http://localhost:8000/request/${formData.email}`)
+
+      console.log(response.data);
+      navigate(response.data.url);
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
   // const exchangeAuthorizationCodeForAccessToken = async (code) => {
   //   try {
@@ -54,10 +70,10 @@ const LoginPage = () => {
   //   }
   // };
 
-  const handleLogin = () => {
-    // Redirect to Google's OAuth 2.0 authorization endpoint
-    window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${import.meta.env.VITE_APP_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_APP_REDIRECT_URI}&response_type=code&scope=${import.meta.env.VITE_APP_SCOPES}&hd=${formData.email}`;
-  };
+  // const handleLogin = () => {
+  //   // Redirect to Google's OAuth 2.0 authorization endpoint
+  //   window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${import.meta.env.VITE_APP_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_APP_REDIRECT_URI}&response_type=code&scope=${import.meta.env.VITE_APP_SCOPES}&hd=${formData.email}`;
+  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -87,10 +103,10 @@ const LoginPage = () => {
       // To ensure the frontend stays logged in, store the JWT in localStorage
       localStorage.setItem("authToken", data.authToken);
 
-      setSuccess(true);
-      setTimeout(() => {
-        navigate("/profile");
-      }, 2000);
+      setLoggedIn(true);
+      // setTimeout(() => {
+      //   navigate("/profile");
+      // }, 2000);
     } catch (error) {
       setErrorMessage(error.response.data.message);
     }
@@ -100,9 +116,11 @@ const LoginPage = () => {
     <div>
       <h1>Login</h1>
       {loggedIn ? (
-        <button onClick={handleLogin}>Login with Google</button>
+            <button type="button" onClick={()=> auth()}>
+              <img src={googleButton} alt='google sign in'/>
+            </button>
       ) : (
-        <LoginForm setFormData={setFormData} handleSubmit={handleSubmit}/>
+        <LoginForm errorMessage={errorMessage} formData={formData} setFormData={setFormData} handleSubmit={handleSubmit}/>
       )}
     </div>
   );
