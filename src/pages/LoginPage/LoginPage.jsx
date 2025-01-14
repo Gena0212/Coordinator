@@ -12,6 +12,8 @@ const LoginPage = () => {
     password: "",
   });
 
+  const apiURL = import.meta.env.VITE_API_BASE_URL
+
 
   useEffect(() => {
     // Function to extract authorization code from URL query parameters
@@ -34,7 +36,7 @@ const LoginPage = () => {
   
   async function auth(){
     try {
-      const response = await axios.post(`http://localhost:8000/request/${formData.email}`)
+      const response = await axios.post(`${apiURL}/request/${formData.email}`)
 
       console.log(response.data);
       navigate(response.data.url);
