@@ -35,7 +35,7 @@ export default function SearchUsers() {
         getUsersList();
       }, []);
 
-      console.log(listOfUsers)
+    console.log(listOfUsers)
 
     if(listOfUsers.length !== 0){
         filteredUsers = listOfUsers.filter(

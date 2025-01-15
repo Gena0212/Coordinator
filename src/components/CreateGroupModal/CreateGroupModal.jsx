@@ -1,9 +1,11 @@
 import SearchUsers from "../SearchUsers/SearchUsers";
+import './CreateGroupModal.scss';
+
 
 function CreateGroupModal(){
     return(
-        <section>
-            <h2>Group Modal</h2>
+        <section className="modal">
+            <h2>Create a New Group</h2>
             <SearchUsers/>
         </section>
     )
