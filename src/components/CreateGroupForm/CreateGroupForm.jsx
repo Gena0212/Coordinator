@@ -1,5 +1,6 @@
 import { useState } from "react";
 import SearchUsers from "../SearchUsers/SearchUsers";
+import axios from "axios";
  
 export default function CreateGroupForm(){
     const [usersAdded, setUsersAdded] = useState({})
@@ -7,6 +8,9 @@ export default function CreateGroupForm(){
         groupName: "",
         searchField: "",
       });
+
+    const authToken = localStorage.getItem('authToken');
+
 
     const handleInputChange = (e) => {
         setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
@@ -17,11 +21,17 @@ export default function CreateGroupForm(){
 
         const groupData = {
             groupName: formInputs.groupName, 
-            member_ids: usersAdded
+            members: usersAdded
         }
 
         try {
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/group`, groupData);
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/group`, groupData, 
+                {
+                    headers: {
+                      authorisation: `Bearer ${authToken}`,
+                    },
+                }
+            );
         } catch (error) {
             console.log(error)
         }

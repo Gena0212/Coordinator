@@ -9,7 +9,6 @@ import LoginForm from '../../components/LoginForm/LoginForm';
 
 
 function HomePage(){
-    const [events, setEvents] = useState(null);
     const [isModalOpen, setIsModalOpen] = useState(false);
 
     const apiURL = import.meta.env.VITE_API_BASE_URL
@@ -18,7 +17,7 @@ function HomePage(){
     useEffect(()=>{
         const authToken = localStorage.getItem('authToken');
         console.log(authToken);
-        const getEvents = async () => {
+        const updateEvents = async () => {
             try {   
                 const response = await axios.get(`${apiURL}/oauth/events`,
                     {
@@ -28,12 +27,12 @@ function HomePage(){
                     }
                 )
                 console.log(response)
-                setEvents(response.data);
+                
             } catch (error) {
                 console.error(error);
             }
         }
-        getEvents();
+        updateEvents();
     }, [])
 
     console.log(isModalOpen);
