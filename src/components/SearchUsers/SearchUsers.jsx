@@ -3,8 +3,9 @@ import { useEffect, useState } from "react";
 
 export default function SearchUsers() {
     const [searchField, setSearchField] = useState("");
+    const [listOfUsers, setListOfUsers] = useState([])
 
-    let listOfUsers;
+    let filteredUsers;
 
     const handleSearchChange = (e) => {
         setSearchField(e.target.value);
@@ -23,7 +24,7 @@ export default function SearchUsers() {
               }
             );
             console.log(data);
-            listOfUsers = data;
+            setListOfUsers(data)
           } catch (error) {
             console.log(error)
           }
@@ -33,12 +34,31 @@ export default function SearchUsers() {
         getUsersList();
       }, []);
 
+      console.log(listOfUsers)
+
+    if(listOfUsers.length !== 0){
+        filteredUsers = listOfUsers.filter(
+            user => {
+                return(
+                    user.firstName.toLowerCase().includes(searchField.toLowerCase()) ||
+                    user.lastName.toLowerCase().includes(searchField.toLowerCase()) ||
+                    user.email.toLowerCase().includes(searchField.toLowerCase())
+                )
+            }
+        )
+    }
     return(
-        <input
-        type="search"
-        placeholder="Search Users"
-        onChange={handleSearchChange}
-        value={searchField}
-        />
+        <div>
+            <input
+            type="search"
+            placeholder="Search Users"
+            onChange={handleSearchChange}
+            value={searchField}
+            />
+            {searchField !== "" && 
+            filteredUsers.map((userSearched)=>{
+                return <p>{`${userSearched.firstName} ${userSearched.lastName}`}</p>
+            })}
+        </div>
     )
 }
