@@ -1,10 +1,9 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function SearchUsers() {
+export default function SearchUsers({usersAdded, setUsersAdded}) {
     const [searchField, setSearchField] = useState("");
     const [listOfUsers, setListOfUsers] = useState([]);
-    const [usersAdded, setUsersAdded] = useState({})
 
     let filteredUsers;
 
@@ -24,7 +23,6 @@ export default function SearchUsers() {
                 }, 
               }
             );
-            console.log(data);
             setListOfUsers(data)
           } catch (error) {
             console.log(error)
@@ -36,6 +34,7 @@ export default function SearchUsers() {
       }, []);
 
     console.log(listOfUsers)
+    console.log(usersAdded);
 
     if(listOfUsers.length !== 0){
         filteredUsers = listOfUsers.filter(
@@ -50,8 +49,10 @@ export default function SearchUsers() {
     }
 
     return(
-        <div>
+        <>
+            <label htmlFor='search-box'>Search:</label>
             <input
+            id='search-box'
             type="search"
             placeholder="Search Users"
             onChange={handleSearchChange}
@@ -61,6 +62,6 @@ export default function SearchUsers() {
             filteredUsers.map((userSearched)=>{
                 return <div key={userSearched.id} onClick={() => setUsersAdded({...usersAdded, [userSearched.id]:false})}>{`${userSearched.firstName} ${userSearched.lastName}`}</div>
             })}
-        </div>
+        </>
     )
 }
