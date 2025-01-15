@@ -1,15 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-export default function SearchUsers({usersAdded, setUsersAdded}) {
-    const [searchField, setSearchField] = useState("");
+export default function SearchUsers({usersAdded, setUsersAdded, handleInputChange, formInputs}) {
     const [listOfUsers, setListOfUsers] = useState([]);
 
     let filteredUsers;
-
-    const handleSearchChange = (e) => {
-        setSearchField(e.target.value);
-    };
 
     const getUsersList = async () => {
         const authToken = localStorage.getItem("authToken");
@@ -40,9 +35,9 @@ export default function SearchUsers({usersAdded, setUsersAdded}) {
         filteredUsers = listOfUsers.filter(
             user => {
                 return(
-                    user.firstName.toLowerCase().includes(searchField.toLowerCase()) ||
-                    user.lastName.toLowerCase().includes(searchField.toLowerCase()) ||
-                    user.email.toLowerCase().includes(searchField.toLowerCase())
+                    user.firstName.toLowerCase().includes(formInputs.searchField.toLowerCase()) ||
+                    user.lastName.toLowerCase().includes(formInputs.searchField.toLowerCase()) ||
+                    user.email.toLowerCase().includes(formInputs.searchField.toLowerCase())
                 )
             }
         )
@@ -50,15 +45,15 @@ export default function SearchUsers({usersAdded, setUsersAdded}) {
 
     return(
         <>
-            <label htmlFor='search-box'>Search:</label>
+            <label htmlFor='searchField'>Search:</label>
             <input
-            id='search-box'
+            name='searchField'
             type="search"
             placeholder="Search Users"
-            onChange={handleSearchChange}
-            value={searchField}
+            onChange={handleInputChange}
+            value={formInputs.searchField}
             />
-            {searchField !== "" && 
+            {formInputs.searchField !== "" && 
             filteredUsers.map((userSearched)=>{
                 return <div key={userSearched.id} onClick={() => setUsersAdded({...usersAdded, [userSearched.id]:false})}>{`${userSearched.firstName} ${userSearched.lastName}`}</div>
             })}

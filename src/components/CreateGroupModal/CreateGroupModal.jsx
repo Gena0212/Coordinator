@@ -4,12 +4,8 @@ import CreateGroupForm from "../CreateGroupForm/CreateGroupForm";
 
 
 function CreateGroupModal(){
-    const [usersAdded, setUsersAdded] = useState({})
-    const [groupName, setGroupName] = useState("")
 
-    const handleInputChange = (e) => {
-        setGroupName(e.target.value);
-      };
+
 
     return(
         <section className="modal">
