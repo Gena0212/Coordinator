@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 
 export default function SearchUsers() {
     const [searchField, setSearchField] = useState("");
-    const [listOfUsers, setListOfUsers] = useState([])
+    const [listOfUsers, setListOfUsers] = useState([]);
+    const [usersAdded, setUsersAdded] = useState({})
 
     let filteredUsers;
 
@@ -47,6 +48,7 @@ export default function SearchUsers() {
             }
         )
     }
+
     return(
         <div>
             <input
@@ -57,7 +59,7 @@ export default function SearchUsers() {
             />
             {searchField !== "" && 
             filteredUsers.map((userSearched)=>{
-                return <p>{`${userSearched.firstName} ${userSearched.lastName}`}</p>
+                return <div key={userSearched.id} onClick={() => setUsersAdded({...usersAdded, [userSearched.id]:false})}>{`${userSearched.firstName} ${userSearched.lastName}`}</div>
             })}
         </div>
     )
