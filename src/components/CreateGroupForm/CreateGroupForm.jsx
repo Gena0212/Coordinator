@@ -25,7 +25,7 @@ export default function CreateGroupForm(){
         }
 
         try {
-            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/group`, groupData, 
+            const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/groups`, groupData, 
                 {
                     headers: {
                       authorisation: `Bearer ${authToken}`,

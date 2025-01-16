@@ -26,7 +26,6 @@ function HomePage(){
                         },
                     }
                 )
-                console.log(response)
                 
             } catch (error) {
                 console.error(error);
