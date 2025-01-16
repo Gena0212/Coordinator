@@ -55,7 +55,7 @@ export default function SearchUsers({usersAdded, setUsersAdded, handleInputChang
             />
             {formInputs.searchField !== "" && 
             filteredUsers.map((userSearched)=>{
-                return <div key={userSearched.id} onClick={() => setUsersAdded({...usersAdded, [userSearched.id]:false})}>{`${userSearched.firstName} ${userSearched.lastName}`}</div>
+                return <div key={userSearched.id} onClick={() => setUsersAdded({...usersAdded, [userSearched.id]:0})}>{`${userSearched.firstName} ${userSearched.lastName}`}</div>
             })}
         </>
     )
