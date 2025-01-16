@@ -39,9 +39,11 @@ function HomePage(){
 
     return (
         <main className='home'>
-            {isModalOpen && <CreateGroupModal/>}
-            <h1>Welcome Home!</h1>
             <Sidebar setIsModalOpen={setIsModalOpen}/>
+            <section>
+                {isModalOpen && <CreateGroupModal/>}
+                <h1>Welcome Home!</h1>
+            </section>
         </main>
 
     )

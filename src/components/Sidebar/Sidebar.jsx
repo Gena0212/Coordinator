@@ -1,3 +1,6 @@
+import './Sidebar.scss';
+
+
 function Sidebar({setIsModalOpen}){
     
     const openModal = () => {
@@ -5,10 +8,11 @@ function Sidebar({setIsModalOpen}){
     }
 
     return(
-        <>
+        <section>
             <h2>Your Groups</h2>
             <button onClick={openModal}>Create a group</button>
-        </>
+        </section>
+        
     )
 }
 
