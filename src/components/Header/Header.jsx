@@ -1,8 +1,18 @@
+import { useNavigate } from "react-router-dom";
+import './Header.scss'
+
 function Header (){
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.removeItem("authToken");
+        navigate("/");
+    };
+
     return(
-        <section>
+        <section className="header">
             <h1>Home</h1>
-            <button>Logout</button>
+            <button onClick={handleLogout}>Logout</button>
         </section>
     )
 }

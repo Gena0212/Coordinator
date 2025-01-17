@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import Calendar from '../../components/Calendar/Calendar';
 import Sidebar from "../../components/Sidebar/Sidebar";
 import './GroupPage.scss'
+import Header from "../../components/Header/Header";
 
 function GroupPage({groups, setIsModalOpen, fetchGroups}){
     const [groupData, setGroupData] = useState([])
@@ -36,6 +37,7 @@ function GroupPage({groups, setIsModalOpen, fetchGroups}){
 
     return(
         <main className="main">
+            <Header/>
             <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
             <section className="calendar">
                 <h1>Group Page</h1>

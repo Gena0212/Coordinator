@@ -23,7 +23,7 @@ function Calendar({groupData}){
                     tempEventArray.push(newObj);
                 }
             }
-        } 
+        }
         
         setEventsToRender(tempEventArray)
 
