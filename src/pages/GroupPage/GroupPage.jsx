@@ -7,6 +7,7 @@ import './GroupPage.scss'
 import Header from "../../components/Header/Header";
 
 function GroupPage({groups, setIsModalOpen, fetchGroups}){
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [groupData, setGroupData] = useState([])
 
     const { id }= useParams();
@@ -26,6 +27,9 @@ function GroupPage({groups, setIsModalOpen, fetchGroups}){
             setGroupData(response.data);
         } catch (error) {
             console.log(error)
+            if (error.status === 401) {
+                setIsLoggedIn(false);
+            }
         }
     }
     
@@ -36,14 +40,22 @@ function GroupPage({groups, setIsModalOpen, fetchGroups}){
     }, []);
 
     return(
-        <main className="main">
-            <Header/>
-            <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
-            <section className="calendar">
-                <h1>Group Page</h1>
-                <Calendar groupData={groupData}/>
-            </section>
-        </main>
+        <>
+        { isLoggedIn ?
+            <>    
+                <Header/>
+                <main className="main">
+                    <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
+                    <section className="calendar">
+                        <h1>Group Page</h1>
+                        <Calendar groupData={groupData}/>
+                    </section>
+                </main>
+            </>
+
+        : <p>You must be logged in to see this page</p>
+        }
+        </>
         
     )
 }

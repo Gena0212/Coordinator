@@ -10,6 +10,8 @@ import Header from '../../components/Header/Header';
 
 
 function HomePage({groups, setGroups, fetchGroups, isModalOpen, setIsModalOpen}){
+    const [isLoading, setIsLoading] = useState(true);
+    const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [invites, setInvites] = useState([]);
     
     const apiURL = import.meta.env.VITE_API_BASE_URL
@@ -28,29 +30,36 @@ function HomePage({groups, setGroups, fetchGroups, isModalOpen, setIsModalOpen})
             )
 
             setInvites(response.data);
-
+            setIsLoading(false);
         } catch (error) {
             console.log(error);
+            if (error.status === 401) {
+                setIsLoggedIn(false);
+                setIsLoading(false);
+            }
+        }
+    }
+    
+    const updateEvents = async () => {
+        try {   
+            const response = await axios.get(`${apiURL}/oauth/events`,
+                {
+                    headers: {
+                      authorisation: `Bearer ${authToken}`,
+                    },
+                }
+            )
+            setIsLoading(false);
+        } catch (error) {
+            console.error(error);
+            if (error.status === 401) {
+                setIsLoggedIn(false);
+                setIsLoading(false);
+            }
         }
     }
 
     useEffect(()=>{
-        
-        const updateEvents = async () => {
-            try {   
-                const response = await axios.get(`${apiURL}/oauth/events`,
-                    {
-                        headers: {
-                          authorisation: `Bearer ${authToken}`,
-                        },
-                    }
-                )
-                
-            } catch (error) {
-                console.error(error);
-            }
-        }
-
         updateEvents();
         getInvites();
     }, [])
@@ -58,19 +67,25 @@ function HomePage({groups, setGroups, fetchGroups, isModalOpen, setIsModalOpen})
 
     return (
         <>
-            <Header/>
-            <main className='home'>
-                <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
-                <section>
-                    {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups}/>}
-                    <h1>Welcome Home!</h1>
-                    {invites.map((invite) => {
-                        return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites}/>
-                    })}
-                </section>
-            </main>
-        </>
-
+        {isLoading && <h2>Loading....</h2>}
+        {!isLoading && isLoggedIn ? 
+            <section>
+                <Header/>
+                <main className='home'>
+                    <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
+                    <section>
+                        {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups}/>}
+                        <h1>Welcome Home!</h1>
+                        {invites.map((invite) => {
+                            return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites}/>
+                        })}
+                    </section>
+                </main>
+            </section>
+        : <p>You must be logged in to see this page</p>
+            
+        }
+        </> 
     )
 }
 

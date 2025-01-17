@@ -41,8 +41,6 @@ function App() {
         <Route path="/calendar/:id" element={<GroupPage groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>} />
       </Routes>
     </BrowserRouter>
-    
-    
   )
 }
 
