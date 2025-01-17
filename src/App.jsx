@@ -8,6 +8,7 @@ import RegisterPage from './pages/RegisterPage/RegisterPage'
 import HomePage from './pages/HomePage/HomePage'
 import GroupPage from './pages/GroupPage/GroupPage'
 import googleButton from './assets/btn_google_signin_dark_pressed_web.png'
+import Header from './components/Header/Header';
 
 function App() {
   const apiURL = import.meta.env.VITE_API_BASE_URL
@@ -34,6 +35,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <Header/>
       <Routes>
         <Route path="/" element={<RegisterPage/>} />
         <Route path="/login" element={<LoginPage/>} />

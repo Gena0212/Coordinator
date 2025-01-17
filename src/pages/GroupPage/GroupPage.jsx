@@ -39,7 +39,7 @@ function GroupPage({groups, setIsModalOpen, fetchGroups}){
             <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
             <section className="calendar">
                 <h1>Group Page</h1>
-                <Calendar/>
+                <Calendar groupData={groupData}/>
             </section>
         </main>
         
