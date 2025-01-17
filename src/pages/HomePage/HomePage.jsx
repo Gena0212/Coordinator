@@ -3,7 +3,6 @@ import './HomePage.scss';
 import axios from "axios";
 import Sidebar from '../../components/Sidebar/Sidebar';
 import CreateGroupModal from '../../components/CreateGroupModal/CreateGroupModal';
-import { Calendar } from '@fullcalendar/core/index.js';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Invite from '../../components/Invite/Invite';
 // import { JWT } from 'google-auth-library';
@@ -11,30 +10,49 @@ import Invite from '../../components/Invite/Invite';
 
 function HomePage(){
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [groups, setGroups] = useState([]);
     const [invites, setInvites] = useState([]);
     
     const apiURL = import.meta.env.VITE_API_BASE_URL
 
+    const authToken = localStorage.getItem('authToken');
+
+    const fetchGroups = async () => {
+        
+        try {
+            const response = await axios.get(`${apiURL}/groups`, 
+                {
+                    headers: {
+                      authorisation: `Bearer ${authToken}`,
+                    },
+                }
+            )
+            setGroups(response.data);
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    const getInvites = async () => {
+        try {
+            const response = await axios.get(`${apiURL}/groups/invites`,
+                {
+                    headers: {
+                      authorisation: `Bearer ${authToken}`,
+                    },
+                }
+            )
+
+            setInvites(response.data);
+
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     useEffect(()=>{
-        const authToken = localStorage.getItem('authToken');
         
-        const getInvites = async () => {
-            try {
-                const response = await axios.get(`${apiURL}/groups/invites`,
-                    {
-                        headers: {
-                          authorisation: `Bearer ${authToken}`,
-                        },
-                    }
-                )
-
-                setInvites(response.data);
-
-            } catch (error) {
-                console.log(error);
-            }
-        }
         const updateEvents = async () => {
             try {   
                 const response = await axios.get(`${apiURL}/oauth/events`,
@@ -54,16 +72,15 @@ function HomePage(){
         getInvites();
     }, [])
 
-    console.log(invites)
 
     return (
         <main className='home'>
-            <Sidebar setIsModalOpen={setIsModalOpen}/>
+            <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
             <section>
-                {isModalOpen && <CreateGroupModal/>}
+                {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups}/>}
                 <h1>Welcome Home!</h1>
                 {invites.map((invite) => {
-                    return <Invite key={invite.id} groupInfo={invite}/>
+                    return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites}/>
                 })}
             </section>
         </main>

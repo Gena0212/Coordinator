@@ -28,9 +28,6 @@ export default function SearchUsers({usersAdded, setUsersAdded, handleInputChang
         getUsersList();
       }, []);
 
-    console.log(listOfUsers)
-    console.log(usersAdded);
-
     if(listOfUsers.length !== 0){
         filteredUsers = listOfUsers.filter(
             user => {

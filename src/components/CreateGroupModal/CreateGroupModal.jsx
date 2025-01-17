@@ -3,12 +3,12 @@ import './CreateGroupModal.scss';
 import CreateGroupForm from "../CreateGroupForm/CreateGroupForm";
 
 
-function CreateGroupModal(){
+function CreateGroupModal({fetchGroups}){
 
     return(
         <section className="modal">
             <h2>Create a New Group</h2>
-            <CreateGroupForm/>
+            <CreateGroupForm fetchGroups={fetchGroups}/>
         </section>
     )
 }

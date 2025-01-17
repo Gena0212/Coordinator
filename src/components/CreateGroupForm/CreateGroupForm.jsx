@@ -1,8 +1,9 @@
 import { useState } from "react";
 import SearchUsers from "../SearchUsers/SearchUsers";
 import axios from "axios";
+import { constrainPoint } from "@fullcalendar/core/internal";
  
-export default function CreateGroupForm(){
+export default function CreateGroupForm({fetchGroups}){
     const [usersAdded, setUsersAdded] = useState({})
     const [formInputs, setFormInputs] = useState({
         groupName: "",
@@ -32,6 +33,10 @@ export default function CreateGroupForm(){
                     },
                 }
             );
+            if(res.status===201){
+                fetchGroups()
+            }
+
         } catch (error) {
             console.log(error)
         }

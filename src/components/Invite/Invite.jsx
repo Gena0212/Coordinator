@@ -1,6 +1,6 @@
 import axios from "axios"
 
-function Invite({groupInfo}){
+function Invite({groupInfo, getInvites}){
     const members = groupInfo.members
 
     const apiURL = import.meta.env.VITE_API_BASE_URL
@@ -8,13 +8,14 @@ function Invite({groupInfo}){
 
     const acceptInvite = async () => {
         try {
-            const response = await axios.put( `${apiURL}/groups/invites/${groupInfo.id}`, {accept_invite: 1}, 
+            const response = await axios.put(`${apiURL}/groups/invites/${groupInfo.id}`, {accept_invite: 1}, 
                 {
                     headers: {
                       authorisation: `Bearer ${authToken}`,
                     },
                 }
             )
+            
             console.log(response.status)
         } catch (error) {
             console.log(error)
@@ -30,7 +31,6 @@ function Invite({groupInfo}){
                         <p>{member.firstName} {member.lastName}</p>
                         <p>{member.email}</p>
                     </div>
-                    
                 )
             })}
             <button onClick={acceptInvite}>Accept Invite</button>

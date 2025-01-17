@@ -1,8 +1,12 @@
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Calendar from '../../components/Calendar/Calendar';
+import Sidebar from "../../components/Sidebar/Sidebar";
+import './GroupPage.scss'
 
 function GroupPage(){
+    const [groupData, setGroupData] = useState([])
 
     const { id }= useParams();
     const authToken = localStorage.getItem('authToken');
@@ -18,19 +22,27 @@ function GroupPage(){
                     },
                 }
             )
-            console.log(response.data);
-            
+            setGroupData(response.data);
         } catch (error) {
             console.log(error)
         }
     }
-
+    
+    let events = []
+    
     useEffect(() => {
         fetchGroupDetails(id);
     }, []);
 
     return(
-        <h1>Group Page</h1>
+        <main className="main">
+            <Sidebar/>
+            <section className="calendar">
+                <h1>Group Page</h1>
+                <Calendar/>
+            </section>
+        </main>
+        
     )
 }
 
