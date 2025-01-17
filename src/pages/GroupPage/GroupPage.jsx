@@ -5,7 +5,7 @@ import Calendar from '../../components/Calendar/Calendar';
 import Sidebar from "../../components/Sidebar/Sidebar";
 import './GroupPage.scss'
 
-function GroupPage(){
+function GroupPage({groups, setIsModalOpen, fetchGroups}){
     const [groupData, setGroupData] = useState([])
 
     const { id }= useParams();
@@ -36,7 +36,7 @@ function GroupPage(){
 
     return(
         <main className="main">
-            <Sidebar/>
+            <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
             <section className="calendar">
                 <h1>Group Page</h1>
                 <Calendar/>

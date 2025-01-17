@@ -8,31 +8,13 @@ import Invite from '../../components/Invite/Invite';
 // import { JWT } from 'google-auth-library';
 
 
-function HomePage(){
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [groups, setGroups] = useState([]);
+function HomePage({groups, setGroups, fetchGroups, isModalOpen, setIsModalOpen}){
     const [invites, setInvites] = useState([]);
     
     const apiURL = import.meta.env.VITE_API_BASE_URL
 
     const authToken = localStorage.getItem('authToken');
 
-    const fetchGroups = async () => {
-        
-        try {
-            const response = await axios.get(`${apiURL}/groups`, 
-                {
-                    headers: {
-                      authorisation: `Bearer ${authToken}`,
-                    },
-                }
-            )
-            setGroups(response.data);
-
-        } catch (error) {
-            console.log(error)
-        }
-    }
 
     const getInvites = async () => {
         try {
