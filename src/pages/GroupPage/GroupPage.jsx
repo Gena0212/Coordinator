@@ -7,6 +7,7 @@ import './GroupPage.scss'
 import Header from "../../components/Header/Header";
 
 function GroupPage({groups, setIsModalOpen, fetchGroups}){
+    const [isLoading, setIsLoading] = useState(true);
     const [isLoggedIn, setIsLoggedIn] = useState(true);
     const [groupData, setGroupData] = useState([])
 
@@ -25,10 +26,12 @@ function GroupPage({groups, setIsModalOpen, fetchGroups}){
                 }
             )
             setGroupData(response.data);
+            setIsLoading(false);
         } catch (error) {
             console.log(error)
             if (error.status === 401) {
                 setIsLoggedIn(false);
+                setIsLoading(false);
             }
         }
     }
@@ -41,7 +44,8 @@ function GroupPage({groups, setIsModalOpen, fetchGroups}){
 
     return(
         <>
-        { isLoggedIn ?
+        {isLoading && <h2>Loading....</h2>}
+        {!isLoading && isLoggedIn ?
             <>    
                 <Header/>
                 <main className="main">
