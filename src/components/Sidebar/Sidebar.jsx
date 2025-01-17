@@ -24,7 +24,6 @@ function Sidebar({setIsModalOpen}){
                         },
                     }
                 )
-                console.log(response.data);
                 setGroups(response.data);
 
             } catch (error) {
@@ -37,7 +36,7 @@ function Sidebar({setIsModalOpen}){
     
     const openModal = () => {
         setIsModalOpen(true)
-    }
+    }   
 
     return(
         <section>
@@ -45,7 +44,7 @@ function Sidebar({setIsModalOpen}){
             <button onClick={openModal}>Create a group</button>
             <ul>
                 {groups.map((group) => {
-                    return <GroupCard group={group}/>
+                    return <GroupCard key={group.id} group={group}/>
                 })}
             </ul>
         </section>
