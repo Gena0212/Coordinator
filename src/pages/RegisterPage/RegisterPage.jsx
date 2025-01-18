@@ -1,11 +1,13 @@
 import { useState } from "react";
 import RegisterForm from "../../components/RegisterForm/RegisterForm";
+import './RegisterPage.scss'
 
 export default function RegisterPage() {
     return (
-        <main>
+        <section className="register">
             <h2>Register</h2>
             <RegisterForm/>
-        </main>
+        </section>
+        
     )
 }

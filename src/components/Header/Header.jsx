@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import './Header.scss'
+import Logo from "../../assets/logos/Logo.png"
 
 function Header (){
     const navigate = useNavigate();
@@ -11,7 +12,7 @@ function Header (){
 
     return(
         <section className="header">
-            <h1>Home</h1>
+            <img className="header__logo" src={Logo} alt="Logo"/>
             <button onClick={handleLogout}>Logout</button>
         </section>
     )
