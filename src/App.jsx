@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import axios from "axios";
 
-import './App.css'
+import './App.scss'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
