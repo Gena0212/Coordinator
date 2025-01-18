@@ -1,4 +1,8 @@
-.home{
+@use '../../styles/partials/fonts';
+
+.home {
     display: flex;
     justify-content: space-evenly;
+    font-family: 'NunitoSans', sans-serif;
+    font-weight: 400;
 }

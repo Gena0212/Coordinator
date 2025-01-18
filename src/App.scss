@@ -1,9 +1,16 @@
+@use './styles/partials/fonts' as *;
+
 #root {
   margin: 0;
   height: 100%;
   width: 100%;
   padding: 2rem;
   text-align: center;
+}
+
+.app {
+  font-family: 'NunitoSans', sans-serif;
+  font-weight: 400;
 }
 
 

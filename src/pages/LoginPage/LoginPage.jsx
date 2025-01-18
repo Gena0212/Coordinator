@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import googleButton from '../../assets/btn_google_signin_dark_pressed_web.png'
+import googleButton from '../../assets/images/btn_google_signin_dark_pressed_web.png'
 
 
 const LoginPage = () => {
