@@ -12,9 +12,9 @@ function Header ({isLoggedIn}){
     };
 
     return(
-        <section className="header">
-            <img className="header__logo" src={Logo} alt="Logo"/>
-            {isLoggedIn && <Button onClick={handleLogout}>Logout</Button>}
+        <section className={`header ${isLoggedIn ?'header--loggedin' : ''}`}>
+            <img className='header__logo' src={Logo} alt="Logo"/>
+            {isLoggedIn && <Button onClick={handleLogout} className= 'button--logout'>Logout</Button>}
         </section>
     )
 }

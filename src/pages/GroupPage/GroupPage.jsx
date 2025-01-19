@@ -26,8 +26,8 @@ function GroupPage({ groups, setIsModalOpen, fetchGroups}){
                 }
             )
             setGroupData(response.data);
-            setIsLoading(false);
             setIsLoggedIn(true);
+            setIsLoading(false);
         } catch (error) {
             console.log(error)
             if (error.status === 401) {
@@ -44,8 +44,9 @@ function GroupPage({ groups, setIsModalOpen, fetchGroups}){
 
     return(
         <>
-        {isLoading && <h2>Loading....</h2>}
-        {!isLoading && isLoggedIn ?
+        {isLoading ? 
+        <h2>Loading....</h2> :
+        isLoggedIn ?
             <>    
                 <Header isLoggedIn={isLoggedIn}/>
                 <main className="main">

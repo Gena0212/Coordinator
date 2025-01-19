@@ -1,8 +1,15 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
 
 .header{
-    @include flex(row, space-between, normal);
+    @include flex(row, space-between, center);
     padding: 1.5rem 0.5rem 0.75rem 0rem;
+    width: 100%;
+
+    &--loggedin{
+        background-color: $senary-colour;
+    }
 
     &__logo {
         width: 18rem;

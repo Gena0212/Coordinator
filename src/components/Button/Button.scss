@@ -25,4 +25,12 @@
         font-size: 1.25rem;
         width: 100%;
     }
+
+    &--logout{
+        background-color: $senary-colour;
+        color: $nonary-colour;
+        border: none;
+        font-weight: 700;
+        align-self: flex-start;
+    }
 }
