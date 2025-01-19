@@ -22,7 +22,7 @@ export default function CreateGroupForm({fetchGroups}){
     const handleSubmit = async (e) => {
         e.preventDefault();
         
-        if(formInputs.groupName === ''){
+        if(formInputs.groupName.replaceAll(" ", "") === ''){
             setErrMessage('Please enter a name for your group')
             return;
         }
