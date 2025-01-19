@@ -48,7 +48,7 @@ export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
 
       setTimeout(() => {
         navigate("/google");
-      }, 3000);
+      }, 600);
 
     } catch (error) {
       console.log(error)
@@ -79,7 +79,7 @@ export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
             className="form__input"
           />
         </div>
-        <Button type="submit">Sign In</Button>
+        <Button className='button--form' type="submit">Sign In</Button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}
     </>

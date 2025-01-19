@@ -1,8 +1,9 @@
-@use '../../styles/partials/fonts';
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/mixins' as *;
+
 
 .home {
-    display: flex;
-    justify-content: space-evenly;
+    @include flex(row, space-evenly, normal);
     font-family: 'NunitoSans', sans-serif;
     font-weight: 400;
 }

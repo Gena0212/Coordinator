@@ -1,6 +1,9 @@
 import axios from "axios";
 import { NavLink } from "react-router-dom";
 import Button from "../Button/Button";
+import './GroupCard.scss'
+import DeleteIcon from '../../assets/images/delete.svg'
+
 
 function GroupCard({group, fetchGroups}) {
     const apiURL = import.meta.env.VITE_API_BASE_URL
@@ -25,14 +28,12 @@ function GroupCard({group, fetchGroups}) {
     }
 
     return(
-        <>
+        <div className="group-card">
             <NavLink to={`/calendar/${group.id}`}>
                 <p>{group.name}</p>
             </NavLink>
-            <Button onClick={deleteGroup}>Delete Group</Button>
-        </>
-        
-       
+            <img className="group-card__delete" onClick={deleteGroup} src={DeleteIcon} alt="Delete Icon"/>
+        </div>
     )
 }
 

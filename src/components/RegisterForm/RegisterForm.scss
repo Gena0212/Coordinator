@@ -1,9 +1,10 @@
+@use '../../styles/partials/mixins' as *;
+
 .form {
     padding: 0 1.25rem;
 
     &__group{
-        display: flex;
-        flex-direction: column;
+        @include flex(column, normal, normal);
     }
 
     &__label {

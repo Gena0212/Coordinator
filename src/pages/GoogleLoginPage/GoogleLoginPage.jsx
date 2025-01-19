@@ -1,6 +1,7 @@
 import axios from 'axios';
-import googleButton from '../../assets/images/btn_google_signin_dark_pressed_web.png'
+import googleButton from '../../assets/images/web_light_rd_SI.svg'
 import Header from '../../components/Header/Header';
+import './GoogleLoginPage.scss'
 
 const GoogleLoginPage = ({formData}) => {
     const apiURL = import.meta.env.VITE_API_BASE_URL;
@@ -22,9 +23,8 @@ const GoogleLoginPage = ({formData}) => {
     return(
         <>
             <Header isLoggedIn={false}/>
-            <button type="button" onClick={()=> auth()}>
-                <img src={googleButton} alt='google sign in'/>
-            </button>
+            <p>Please sign in with Google below:</p>
+            <img className='google' src={googleButton} alt='google sign in' onClick={()=> auth()}/>
         </>
     )
 }

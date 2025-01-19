@@ -1,6 +1,7 @@
+@use '../../styles/partials/mixins' as *;
+
 .main {
-    display: flex;
-    justify-content: space-between;
+    @include flex(row, space-between, normal);
 }
 
 .calendar{

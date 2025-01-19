@@ -18,7 +18,7 @@ function Sidebar({groups, setIsModalOpen, fetchGroups}){
     return(
         <section>
             <h2>Your Groups</h2>
-            <Button onClick={openModal}>Create a group</Button>
+            <Button onClick={openModal}>Add Group</Button>
             {groups.map((group) => {
                     return <GroupCard key={group.id} group={group} fetchGroups={fetchGroups}/>
             })}

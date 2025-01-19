@@ -112,7 +112,7 @@ export default function RegisterForm(){
                 className="form__input"
               />
             </div>
-            <Button type="submit">Signup</Button>
+            <Button className='button--form' type="submit">Signup</Button>
             {errorMessage && <p>{errorMessage}</p>}
             {success && <p>Success! Redirecting to login page...</p>}
           </form>

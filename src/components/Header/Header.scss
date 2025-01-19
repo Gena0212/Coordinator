@@ -1,9 +1,10 @@
+@use "../../styles/partials/mixins" as *;
+
 .header{
-    display: flex;
-    justify-content: space-between;
+    @include flex(row, space-between, normal);
     padding: 1.5rem 0.5rem 0.75rem 0rem;
 
     &__logo {
-        width: 16.5rem;
+        width: 18rem;
     }
 }
