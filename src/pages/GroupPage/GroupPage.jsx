@@ -6,7 +6,9 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import './GroupPage.scss'
 import Header from "../../components/Header/Header";
 
-function GroupPage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, setIsModalOpen, fetchGroups}){
+function GroupPage({ groups, setIsModalOpen, fetchGroups}){
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [groupData, setGroupData] = useState([])
 
     const { id }= useParams();
@@ -25,10 +27,10 @@ function GroupPage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, 
             )
             setGroupData(response.data);
             setIsLoading(false);
+            setIsLoggedIn(true);
         } catch (error) {
             console.log(error)
             if (error.status === 401) {
-                setIsLoggedIn(false);
                 setIsLoading(false);
             }
         }
@@ -45,7 +47,7 @@ function GroupPage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, 
         {isLoading && <h2>Loading....</h2>}
         {!isLoading && isLoggedIn ?
             <>    
-                <Header/>
+                <Header isLoggedIn={isLoggedIn}/>
                 <main className="main">
                     <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section className="calendar">

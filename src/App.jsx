@@ -6,12 +6,17 @@ import LoginPage from './pages/LoginPage/LoginPage'
 import RegisterPage from './pages/RegisterPage/RegisterPage'
 import HomePage from './pages/HomePage/HomePage'
 import GroupPage from './pages/GroupPage/GroupPage'
+import GoogleLoginPage from './pages/GoogleLoginPage/GoogleLoginPage';
 
 function App() {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [groups, setGroups] = useState([]);
+
+  const [formData, setFormData] = useState({
+      email: "",
+      password: "",
+  });
+  
 
   const apiURL = import.meta.env.VITE_API_BASE_URL
   const authToken = localStorage.getItem('authToken');
@@ -37,9 +42,10 @@ function App() {
     <div className='app'>
       <Routes>
         <Route path="/" element={<RegisterPage/>} />
-        <Route path="/login" element={<LoginPage/>} />
-        <Route path="/home" element={<HomePage isLoading={isLoading} setIsLoading={setIsLoading} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} groups={groups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}/>
-      <Route path="/calendar/:id" element={<GroupPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isLoading={isLoading} setIsLoading={setIsLoading} groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>} />
+        <Route path="/login" element={<LoginPage formData={formData} setFormData={setFormData} />} />
+        <Route path='/google' element={<GoogleLoginPage formData={formData}/>}/>
+        <Route path="/home" element={<HomePage groups={groups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}/>
+      <Route path="/calendar/:id" element={<GroupPage groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>} />
       </Routes>
     </div>
     </BrowserRouter>

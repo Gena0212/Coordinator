@@ -1,19 +1,20 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { emailRegex } from "../../../lib/regex";
 import axios from "axios";
 import Button from "../Button/Button";
 
 
-export default function LoginForm({formData, setFormData, setLoggedIn}) {
+export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
   const [errorMessage, setErrorMessage] = useState("");
-  
+
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
-    console.log('entered into handleSubmit')
     e.preventDefault();
     setErrorMessage("");
 
@@ -40,13 +41,15 @@ export default function LoginForm({formData, setFormData, setLoggedIn}) {
         }
       );
 
+      setIsLoggedIn(true);
+
       // To ensure the frontend stays logged in, store the JWT in localStorage
       localStorage.setItem("authToken", data.authToken);
 
-      setLoggedIn(true);
-      // setTimeout(() => {
-      //   navigate("/profile");
-      // }, 2000);
+      setTimeout(() => {
+        navigate("/google");
+      }, 3000);
+
     } catch (error) {
       console.log(error)
       setErrorMessage(error.response.data.message);

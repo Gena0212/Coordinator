@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import LoginForm from '../../components/LoginForm/LoginForm';
-import googleButton from '../../assets/images/btn_google_signin_dark_pressed_web.png'
+import Header from '../../components/Header/Header';
+// import googleButton from '../../assets/images/btn_google_signin_dark_pressed_web.png'
 
 
-const LoginPage = () => {
-  const [loggedIn, setLoggedIn] = useState(false);
-  
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-  });
+const LoginPage = ({formData, setFormData}) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  // const [formData, setFormData] = useState({
+  //   email: "",
+  //   password: "",
+  // });
 
-  const apiURL = import.meta.env.VITE_API_BASE_URL
+  // const apiURL = import.meta.env.VITE_API_BASE_URL
 
 
   useEffect(() => {
@@ -30,33 +30,34 @@ const LoginPage = () => {
     getAuthorizationCode();
   }, []);
 
-  function navigate(url){
-    window.location.href = url;
-  }
+  // function navigate(url){
+  //   window.location.href = url;
+  // }
   
-  async function auth(){
-    try {
-      const response = await axios.post(`${apiURL}/request/${formData.email}`)
-      console.log(response.data);
-      navigate(response.data.url);
-    } catch (error) {
-      console.log(error)
-    }
-  }
+  // async function auth(){
+  //   try {
+  //     const response = await axios.post(`${apiURL}/request/${formData.email}`)
+  //     console.log(response.data);
+  //     navigate(response.data.url);
+  //   } catch (error) {
+  //     console.log(error)
+  //   }
+  // }
 
 
   return (
     <div>
-      {loggedIn ? (
-        <button type="button" onClick={()=> auth()}>
-              <img src={googleButton} alt='google sign in'/>
-            </button>
-      ) : (
+      {/* {isLoggedIn ? ( */}
+        {/* // <button type="button" onClick={()=> auth()}>
+        //       <img src={googleButton} alt='google sign in'/>
+        //     </button> */}
+      {/* ) : ( */}
         <>
+          <Header isLoggedIn={false}/>
           <h1>Login</h1>
-          <LoginForm formData={formData} setFormData={setFormData} setLoggedIn={setLoggedIn} />
+          <LoginForm formData={formData} setFormData={setFormData} setIsLoggedIn={setIsLoggedIn} />
         </>
-      )}
+      {/* )} */}
     </div>
   );
 };

@@ -9,8 +9,9 @@ import Header from '../../components/Header/Header';
 // import { JWT } from 'google-auth-library';
 
 
-function HomePage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, fetchGroups, isModalOpen, setIsModalOpen}){
-
+function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
     const [invites, setInvites] = useState([]);
     
     const apiURL = import.meta.env.VITE_API_BASE_URL
@@ -30,10 +31,10 @@ function HomePage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, f
 
             setInvites(response.data);
             setIsLoading(false);
+            setIsLoggedIn(true);
         } catch (error) {
             console.log(error);
             if (error.status === 401) {
-                setIsLoggedIn(false);
                 setIsLoading(false);
             }
         }
@@ -49,10 +50,10 @@ function HomePage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, f
                 }
             )
             setIsLoading(false);
+            setIsLoggedIn(true)
         } catch (error) {
             console.error(error);
             if (error.status === 401) {
-                setIsLoggedIn(false);
                 setIsLoading(false);
             }
         }
@@ -69,7 +70,7 @@ function HomePage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, f
         {isLoading && <h2>Loading....</h2>}
         {!isLoading && isLoggedIn ? 
             <section>
-                <Header/>
+                <Header isLoggedIn={isLoggedIn}/>
                 <main className='home'>
                     <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section>
