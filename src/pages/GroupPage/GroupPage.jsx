@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Calendar from '../../components/Calendar/Calendar';
-import Sidebar from "../../components/Sidebar/Sidebar";
+import GroupsBar from "../../components/GroupsBar/GroupsBar";
 import './GroupPage.scss'
 import Header from "../../components/Header/Header";
 
@@ -50,14 +50,13 @@ function GroupPage({ groups, setIsModalOpen, fetchGroups}){
             <>    
                 <Header isLoggedIn={isLoggedIn}/>
                 <main className="main">
-                    <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
+                    <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section className="calendar">
                         <h1>Group Page</h1>
                         <Calendar groupData={groupData}/>
                     </section>
                 </main>
             </>
-
         : <p>You must be logged in to see this page</p>
         }
         </>

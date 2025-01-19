@@ -1,0 +1,24 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+
+.groups{
+    @include flex(row, flex-start, normal);
+    width: 100%;
+    background-color: $fifteenth-colour;
+
+    &__header{
+        @include flex(column, space-around, normal);
+        margin: 1rem 0.75rem 1rem 0.75rem;
+    }
+
+    &__title {
+        white-space: nowrap;
+    }
+
+    &__items {
+        @include flex(row, normal, center);
+        overflow-y: scroll;
+
+    }
+}

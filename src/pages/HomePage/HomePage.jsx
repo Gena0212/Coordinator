@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import './HomePage.scss';
 import axios from "axios";
-import Sidebar from '../../components/Sidebar/Sidebar';
 import CreateGroupModal from '../../components/CreateGroupModal/CreateGroupModal';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Invite from '../../components/Invite/Invite';
 import Header from '../../components/Header/Header';
+import GroupsBar from '../../components/GroupsBar/GroupsBar';
 // import { JWT } from 'google-auth-library';
 
 
@@ -73,7 +73,7 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
                 <Header isLoggedIn={isLoggedIn}/>
                 {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups} setIsModalOpen={setIsModalOpen}/>}
                 <main className='home__main'>
-                    <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
+                    <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section>
                         <h1>Welcome Home!</h1>
                         {invites.map((invite) => {

@@ -1,8 +1,26 @@
+@use "../../styles/partials/variables" as *;
+
 .group-card{
     display: flex;
+    background-color: $fifteenth-colour;
+    border-radius: 1.5rem;
+    border: 1px solid $decenary-colour;
+    margin-right: 0.5rem;
+
+    &__navlink{
+        text-decoration: none;
+        color: $sixteenth-colour;
+    }
+    &__name {
+        font-weight: 700;
+        font-size: 1.25rem;
+        margin: 0.25rem 0.25rem 0.25rem 0.75rem;
+        white-space: nowrap;
+    }
 
     &__delete {
         width: 1rem;
+        margin: 0 0.5rem;
     }
 
 }

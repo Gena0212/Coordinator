@@ -29,8 +29,8 @@ function GroupCard({group, fetchGroups}) {
 
     return(
         <div className="group-card">
-            <NavLink to={`/calendar/${group.id}`}>
-                <p>{group.name}</p>
+            <NavLink className='group-card__navlink' to={`/calendar/${group.id}`}>
+                <p className="group-card__name">{group.name}</p>
             </NavLink>
             <img className="group-card__delete" onClick={deleteGroup} src={DeleteIcon} alt="Delete Icon"/>
         </div>
