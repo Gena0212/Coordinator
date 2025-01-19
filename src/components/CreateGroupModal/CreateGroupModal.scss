@@ -1,4 +1,6 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+
 
 .modal{
     position: absolute;
@@ -12,6 +14,13 @@
     align-self: center;
     border: 1px solid $decenary-colour;
     border-radius: 1.5rem;
+    @include flex(column, normal, normal);
+
+    &__icon{
+        width: 1.5rem;
+        align-self: flex-end;
+        padding-right: 0.25rem;
+    } 
 
     &__title {
         font-size: 2.1rem;

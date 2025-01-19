@@ -71,7 +71,7 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
         {!isLoading && isLoggedIn ? 
             <section className='home'>
                 <Header isLoggedIn={isLoggedIn}/>
-                {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups}/>}
+                {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups} setIsModalOpen={setIsModalOpen}/>}
                 <main className='home__main'>
                     <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section>
