@@ -11,6 +11,10 @@
     width: fit-content;
     height: fit-content;
     border-radius: 1.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
     
     &--form{
         margin-top: 0.45rem;
