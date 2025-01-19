@@ -58,53 +58,58 @@ export default function RegisterForm(){
     return (
           <form className="form" onSubmit={handleSubmit}>
             <div className="form__group">
-              <label htmlFor="firstName">First Name</label>
+              <label htmlFor="firstName" className="form__label">First Name</label>
               <input
                 type="text"
                 name="firstName"
                 id="firstName"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.firstName}
+                className="form__input"
               />
             </div>
             <div className="form__group">
-              <label htmlFor="lastName">Last Name</label>
+              <label htmlFor="lastName" className="form__label">Last Name</label>
               <input
                 type="text"
                 name="lastName"
                 id="lastName"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.lastName}
+                className="form__input"
               />
             </div>
             <div className="form__group">
-              <label htmlFor="emailRegister">Enter the email associated with your google calendar</label>
+              <label htmlFor="emailRegister" className="form__label">Email associated with your google calendar:</label>
               <input
                 type="text"
                 name="email"
                 id="emailRegister"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.email}
+                className="form__input"
               />
             </div>
             <div className="form__group">
-              <label htmlFor="passwordRegister">Password</label>
+              <label htmlFor="passwordRegister" className="form__label">Password</label>
               <input
                 type="password"
                 name="password"
                 id="passwordRegister"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.password}
+                className="form__input"
               />
             </div>
             <div className="form__group">
-              <label htmlFor="confirmPasswordRegister">Confirm your password</label>
+              <label htmlFor="confirmPasswordRegister" className="form__label">Confirm your password</label>
               <input
                 type="password"
                 name="confirmPassword"
                 id="confirmPasswordRegister"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.confirmPassword}
+                className="form__input"
               />
             </div>
             <Button type="submit">Signup</Button>

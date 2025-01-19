@@ -1,6 +1,18 @@
 .form {
+    padding: 0 1.25rem;
+
     &__group{
         display: flex;
         flex-direction: column;
+    }
+
+    &__label {
+        margin: 1.25rem 0 0.5rem 0.25rem;
+        align-self: flex-start;
+    }
+
+    &__input {
+        border-radius: 1rem;
+        padding: 0.35rem;
     }
 }
