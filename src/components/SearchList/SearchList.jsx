@@ -12,14 +12,14 @@ export default function SearchList({filteredUsers, setUsersAdded, usersAdded}) {
     }
 
     return (
-        <>
+        <div className='list'>
             {filteredUsers.map((userSearched) => {
                 return (
-                <div className="list" key={userSearched.id} onClick={() => addUsers(userSearched)}>
+                <div className="list__item" key={userSearched.id} onClick={() => addUsers(userSearched)}>
                     <p className="list__name">{`${userSearched.firstName} ${userSearched.lastName}`}</p>
                     <p className="list__email">{userSearched.email}</p>
                 </div>)
             })}
-        </>
+        </div>
     )
 }

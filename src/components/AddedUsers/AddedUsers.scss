@@ -3,14 +3,20 @@
 
 .added{
     overflow-y: scroll;
-    height: 5rem;
+    height: 2.75rem;
+    @include flex(row, normal, normal);
+    margin: 0.75rem 0;
 
     &__user{
         color: $duodenary-colour;
         border: 1px solid $duodenary-colour;
         border-radius: 1.5rem;
         width: fit-content;
-        padding: 0.25rem 0.75rem;
+        padding: 0.25rem 1rem;
+        @include flex(row, space-between, normal);
+    }
+    
+    &__details {
         @include flex(column, normal, normal);
     }
 
@@ -18,10 +24,16 @@
         margin: 0;
         font-size: 0.85rem;
         align-self: flex-start;
+        font-weight: 700;
     }
 
     &__email{
         margin: 0;
-        font-size: 0.75rem;
+        font-size: 0.65rem;
+    }
+
+    &__icon{
+        width: 1rem;
+        padding-left: 0.75rem;
     }
 }

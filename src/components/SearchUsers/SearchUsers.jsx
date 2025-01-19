@@ -1,12 +1,12 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import "./SearchUsers.scss"
-import Scroll from "../Scroll/Scroll";
 import SearchList from "../SearchList/SearchList";
 import AddedUsers from "../AddedUsers/AddedUsers";
+import Button from "../Button/Button";
 
 
-export default function SearchUsers({usersAdded, setUsersAdded, handleInputChange, formInputs}) {
+export default function SearchUsers({usersAdded, setUsersAdded, handleInputChange, formInputs, handleSubmit, errMessage}) {
     const [listOfUsers, setListOfUsers] = useState([]);
 
     let filteredUsers;
@@ -56,13 +56,13 @@ export default function SearchUsers({usersAdded, setUsersAdded, handleInputChang
           value={formInputs.searchField}
           className="search__input"
           />
+          <Button className='button--form' onClick={handleSubmit}>Create Group</Button>
+          {errMessage && <p>{errMessage}</p>}
+          {usersAdded.users.length !== 0 && <AddedUsers usersAdded={usersAdded}/>}
           {formInputs.searchField !== "" && 
-          <>
-            <AddedUsers usersAdded={usersAdded}/>
-            <Scroll>
-              <SearchList filteredUsers={filteredUsers} usersAdded={usersAdded} setUsersAdded={setUsersAdded}/>
-            </Scroll>
-          </>
+          <div className="search__scroll">
+            <SearchList filteredUsers={filteredUsers} usersAdded={usersAdded} setUsersAdded={setUsersAdded}/>
+          </div>
           }
         </div>
         
