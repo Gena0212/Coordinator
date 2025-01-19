@@ -5,7 +5,7 @@ import CreateGroupModal from '../../components/CreateGroupModal/CreateGroupModal
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Invite from '../../components/Invite/Invite';
 import Header from '../../components/Header/Header';
-import GroupsBar from '../../components/GroupsBar/GroupsBar';
+import GroupsBar from '../../components/Groupsbar/Groupsbar';
 // import { JWT } from 'google-auth-library';
 
 
@@ -75,10 +75,16 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
                 <main className='home__main'>
                     <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section>
-                        <h1>Welcome Home!</h1>
-                        {invites.map((invite) => {
-                            return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites}/>
-                        })}
+                        <h2 className='home__title'>Welcome Back!</h2>
+                        {invites.length === 0 ? 
+                        <h3>You have no invites at the moment</h3>
+                        : 
+                        <section className='home__invite'>
+                            {invites.map((invite) => {
+                                return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites}/>
+                            })}
+                        </section>
+                        }
                     </section>
                 </main>
             </section>

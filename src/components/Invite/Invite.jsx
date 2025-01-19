@@ -1,5 +1,6 @@
 import axios from "axios"
 import Button from "../Button/Button";
+import './Invite.scss'
 
 function Invite({groupInfo, getInvites}){
     const members = groupInfo.members
@@ -24,17 +25,24 @@ function Invite({groupInfo, getInvites}){
     }
 
     return(
-        <section>
-            <h3>{groupInfo.name}</h3>
-            {members.map((member) => {
-                return (
-                    <div key={member.id}>
-                        <p>{member.firstName} {member.lastName}</p>
-                        <p>{member.email}</p>
-                    </div>
-                )
-            })}
-            <Button onClick={acceptInvite}>Accept Invite</Button>
+        <section className="invite">
+            <p className="invite__p">You have been invited to:</p>
+            <h3 className="invite__group">{groupInfo.name}</h3>
+            {members.length === 0 ?  
+            <p>No other users in this group</p>:
+                <section className="invite__others">
+                    <p className="invite__p">Other users added to this group:</p>
+                    {members.map((member) => {
+                        return (
+                            <div className="invite__member" key={member.id}>
+                                <p className="invite__name">{member.firstName} {member.lastName}</p>
+                                <p className="invite__email">{member.email}</p>
+                            </div>
+                        )
+                    })}
+                </section>
+            }
+            <Button className='button--accept' onClick={acceptInvite}>Accept Invite</Button>
         </section>
     )
 }
