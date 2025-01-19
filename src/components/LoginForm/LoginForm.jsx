@@ -58,21 +58,27 @@ export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="email">Username</label>
-        <input
-          type="text"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-        />
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleInputChange}
-        />
+      <form className="form" onSubmit={handleSubmit}>
+        <div className="form__group">
+          <label htmlFor="email" className="form__label">Username</label>
+          <input
+            type="text"
+            name="email"
+            value={formData.email}
+            onChange={handleInputChange}
+            className="form__input"
+          />
+        </div>
+        <div className="form__group">
+          <label htmlFor="password" className="form__label">Password</label>
+          <input
+            type="password"
+            name="password"
+            value={formData.password}
+            onChange={handleInputChange}
+            className="form__input"
+          />
+        </div>
         <Button type="submit">Sign In</Button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}

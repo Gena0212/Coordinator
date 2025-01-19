@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Header from '../../components/Header/Header';
+import './LoginPage.scss'
 // import googleButton from '../../assets/images/btn_google_signin_dark_pressed_web.png'
 
 
@@ -54,8 +55,10 @@ const LoginPage = ({formData, setFormData}) => {
       {/* ) : ( */}
         <>
           <Header isLoggedIn={false}/>
-          <h1>Login</h1>
-          <LoginForm formData={formData} setFormData={setFormData} setIsLoggedIn={setIsLoggedIn} />
+          <section className='login'>
+            <h1 className='login__title'>Login</h1>
+            <LoginForm formData={formData} setFormData={setFormData} setIsLoggedIn={setIsLoggedIn} />
+          </section>
         </>
       {/* )} */}
     </div>

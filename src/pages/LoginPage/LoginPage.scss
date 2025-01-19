@@ -1,0 +1,8 @@
+@use '../../styles/partials/variables' as *;
+
+.login {
+    &__title {
+        margin-bottom: 0.4rem;
+        color: $nonary-colour;
+    }
+}
