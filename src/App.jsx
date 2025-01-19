@@ -8,11 +8,13 @@ import HomePage from './pages/HomePage/HomePage'
 import GroupPage from './pages/GroupPage/GroupPage'
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [groups, setGroups] = useState([]);
+
   const apiURL = import.meta.env.VITE_API_BASE_URL
   const authToken = localStorage.getItem('authToken');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const [groups, setGroups] = useState([]);
 
   const fetchGroups = async () => {
     try {
@@ -36,8 +38,8 @@ function App() {
       <Routes>
         <Route path="/" element={<RegisterPage/>} />
         <Route path="/login" element={<LoginPage/>} />
-        <Route path="/home" element={<HomePage groups={groups} setGroups={setGroups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}/>
-        <Route path="/calendar/:id" element={<GroupPage groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>} />
+        <Route path="/home" element={<HomePage isLoading={isLoading} setIsLoading={setIsLoading} isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} groups={groups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}/>
+      <Route path="/calendar/:id" element={<GroupPage isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} isLoading={isLoading} setIsLoading={setIsLoading} groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>} />
       </Routes>
     </div>
     </BrowserRouter>

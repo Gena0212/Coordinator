@@ -6,9 +6,7 @@ import Sidebar from "../../components/Sidebar/Sidebar";
 import './GroupPage.scss'
 import Header from "../../components/Header/Header";
 
-function GroupPage({groups, setIsModalOpen, fetchGroups}){
-    const [isLoading, setIsLoading] = useState(true);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+function GroupPage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, setIsModalOpen, fetchGroups}){
     const [groupData, setGroupData] = useState([])
 
     const { id }= useParams();

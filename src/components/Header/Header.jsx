@@ -3,7 +3,7 @@ import './Header.scss'
 import Logo from "../../assets/logos/Logo.png"
 import Button from "../Button/Button";
 
-function Header (){
+function Header ({isLoggedIn}){
     const navigate = useNavigate();
 
     const handleLogout = () => {
@@ -14,7 +14,7 @@ function Header (){
     return(
         <section className="header">
             <img className="header__logo" src={Logo} alt="Logo"/>
-            <Button onClick={handleLogout}>Logout</Button>
+            {isLoggedIn && <Button onClick={handleLogout}>Logout</Button>}
         </section>
     )
 }

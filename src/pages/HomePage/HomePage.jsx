@@ -9,9 +9,8 @@ import Header from '../../components/Header/Header';
 // import { JWT } from 'google-auth-library';
 
 
-function HomePage({groups, setGroups, fetchGroups, isModalOpen, setIsModalOpen}){
-    const [isLoading, setIsLoading] = useState(true);
-    const [isLoggedIn, setIsLoggedIn] = useState(true);
+function HomePage({isLoggedIn, setIsLoggedIn, isLoading, setIsLoading, groups, fetchGroups, isModalOpen, setIsModalOpen}){
+
     const [invites, setInvites] = useState([]);
     
     const apiURL = import.meta.env.VITE_API_BASE_URL
