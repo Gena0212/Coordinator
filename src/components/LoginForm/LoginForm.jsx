@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { emailRegex } from "../../../lib/regex";
 import axios from "axios";
+import Button from "../Button/Button";
 
 
 export default function LoginForm({formData, setFormData, setLoggedIn}) {
@@ -69,8 +70,7 @@ export default function LoginForm({formData, setFormData, setLoggedIn}) {
           value={formData.password}
           onChange={handleInputChange}
         />
-        <button>Sign In</button>
-
+        <Button type="submit">Sign In</Button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}
     </>

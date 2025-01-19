@@ -37,7 +37,6 @@ const LoginPage = () => {
   async function auth(){
     try {
       const response = await axios.post(`${apiURL}/request/${formData.email}`)
-
       console.log(response.data);
       navigate(response.data.url);
     } catch (error) {
@@ -45,49 +44,18 @@ const LoginPage = () => {
     }
   }
 
-  // const exchangeAuthorizationCodeForAccessToken = async (code) => {
-  //   try {
-  //     const response = await axios.post('https://oauth2.googleapis.com/token', null, {
-  //       params: {
-  //         code,
-  //         client_id: import.meta.env.VITE_APP_CLIENT_ID,
-  //         client_secret: import.meta.env.VITE_APP_CLIENT_SECRET,
-  //         redirect_uri: import.meta.env.VITE_APP_REDIRECT_URI,
-  //         grant_type: 'authorization_code',
-  //       },
-  //     });
-
-  //     console.log(response.data);
-  //     const { access_token } = response.data;
-
-  //     console.log(access_token);
-
-  //     if (access_token) {
-  //       // Store the access token securely (e.g., in localStorage or a backend server)
-  //       localStorage.setItem("access_token", access_token);
-  //     }
-  //     setLoggedIn(true)
-  //   } catch (error) {
-  //     console.error('Error exchanging authorization code for access token:', error);
-  //   }
-  // };
-
-  // const handleLogin = () => {
-  //   // Redirect to Google's OAuth 2.0 authorization endpoint
-  //   window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${import.meta.env.VITE_APP_CLIENT_ID}&redirect_uri=${import.meta.env.VITE_APP_REDIRECT_URI}&response_type=code&scope=${import.meta.env.VITE_APP_SCOPES}&hd=${formData.email}`;
-  // };
-
-
 
   return (
     <div>
-      <h1>Login</h1>
       {loggedIn ? (
-            <button type="button" onClick={()=> auth()}>
+        <button type="button" onClick={()=> auth()}>
               <img src={googleButton} alt='google sign in'/>
             </button>
       ) : (
-        <LoginForm formData={formData} setFormData={setFormData} setLoggedIn={setLoggedIn} />
+        <>
+          <h1>Login</h1>
+          <LoginForm formData={formData} setFormData={setFormData} setLoggedIn={setLoggedIn} />
+        </>
       )}
     </div>
   );

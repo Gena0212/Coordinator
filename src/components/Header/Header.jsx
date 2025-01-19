@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import './Header.scss'
 import Logo from "../../assets/logos/Logo.png"
+import Button from "../Button/Button";
 
 function Header (){
     const navigate = useNavigate();
@@ -13,7 +14,7 @@ function Header (){
     return(
         <section className="header">
             <img className="header__logo" src={Logo} alt="Logo"/>
-            <button onClick={handleLogout}>Logout</button>
+            <Button onClick={handleLogout}>Logout</Button>
         </section>
     )
 }

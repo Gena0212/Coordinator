@@ -1,4 +1,5 @@
 import axios from "axios"
+import Button from "../Button/Button";
 
 function Invite({groupInfo, getInvites}){
     const members = groupInfo.members
@@ -33,7 +34,7 @@ function Invite({groupInfo, getInvites}){
                     </div>
                 )
             })}
-            <button onClick={acceptInvite}>Accept Invite</button>
+            <Button onClick={acceptInvite}>Accept Invite</Button>
         </section>
     )
 }

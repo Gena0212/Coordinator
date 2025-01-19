@@ -2,6 +2,7 @@ import { useState } from "react";
 import SearchUsers from "../SearchUsers/SearchUsers";
 import axios from "axios";
 import { constrainPoint } from "@fullcalendar/core/internal";
+import Button from "../Button/Button";
  
 export default function CreateGroupForm({fetchGroups}){
     const [usersAdded, setUsersAdded] = useState({})
@@ -52,7 +53,7 @@ export default function CreateGroupForm({fetchGroups}){
             onChange={handleInputChange}
             />
             <SearchUsers usersAdded={usersAdded} setUsersAdded={setUsersAdded} handleInputChange={handleInputChange} formInputs={formInputs}/>
-            <button onClick={handleSubmit}>Create Group</button>
+            <Button onClick={handleSubmit}>Create Group</Button>
         </form>
     )
 }

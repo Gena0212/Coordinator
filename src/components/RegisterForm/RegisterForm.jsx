@@ -3,6 +3,7 @@ import './RegisterForm.scss'
 import { useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { emailRegex } from "../../../lib/regex";
+import Button from '../Button/Button';
 
 export default function RegisterForm(){
   const navigate = useNavigate();
@@ -106,7 +107,7 @@ export default function RegisterForm(){
                 value={formData.confirmPassword}
               />
             </div>
-            <button>Signup</button>
+            <Button type="submit">Signup</Button>
             {errorMessage && <p>{errorMessage}</p>}
             {success && <p>Success! Redirecting to login page...</p>}
           </form>

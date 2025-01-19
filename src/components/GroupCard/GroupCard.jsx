@@ -1,5 +1,6 @@
 import axios from "axios";
 import { NavLink } from "react-router-dom";
+import Button from "../Button/Button";
 
 function GroupCard({group, fetchGroups}) {
     const apiURL = import.meta.env.VITE_API_BASE_URL
@@ -28,7 +29,7 @@ function GroupCard({group, fetchGroups}) {
             <NavLink to={`/calendar/${group.id}`}>
                 <p>{group.name}</p>
             </NavLink>
-            <button onClick={deleteGroup}>Delete Group</button>
+            <Button onClick={deleteGroup}>Delete Group</Button>
         </>
         
        
