@@ -3,8 +3,9 @@
 .invite {
     border: 1px solid $tertiary-colour;
     border-radius: 2rem;
-    width: fit-content;
+    width: 12rem;
     padding: 0.5rem 3rem 2rem 3rem;
+    margin-bottom: 1.5rem;
 
     &__p{
         margin: 0.5rem 0 0.35rem 0;

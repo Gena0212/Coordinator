@@ -81,7 +81,7 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
                         : 
                         <section className='home__invite'>
                             {invites.map((invite) => {
-                                return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites}/>
+                                return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites} fetchGroups={fetchGroups} />
                             })}
                         </section>
                         }

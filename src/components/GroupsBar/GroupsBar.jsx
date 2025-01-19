@@ -19,8 +19,7 @@ function GroupsBar({groups, setIsModalOpen, fetchGroups}){
     for (let i = groups.length-1; i >= 0; i --) {
         groupsToRender.push(groups[i]);
     }
-    console.log(groups)
-    console.log(groupsToRender);
+
 
     return(
         <section className='groups'>

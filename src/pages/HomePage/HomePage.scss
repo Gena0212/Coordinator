@@ -22,5 +22,7 @@
         @include flex(column, normal, center);
         overflow-y: scroll;
         overflow-x: hidden;
+        height: 20rem;
     }
+
 }

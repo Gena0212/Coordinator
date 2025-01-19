@@ -2,14 +2,16 @@ import axios from "axios"
 import Button from "../Button/Button";
 import './Invite.scss'
 
-function Invite({groupInfo, getInvites}){
+function Invite({groupInfo, getInvites, fetchGroups}){
     const members = groupInfo.members
 
     const apiURL = import.meta.env.VITE_API_BASE_URL
     const authToken = localStorage.getItem('authToken');
 
     const acceptInvite = async () => {
+        console.log('eneter into acceptInvite')
         try {
+            console.log('enter into trycatch')
             const response = await axios.put(`${apiURL}/groups/invites/${groupInfo.id}`, {accept_invite: 1}, 
                 {
                     headers: {
@@ -17,8 +19,12 @@ function Invite({groupInfo, getInvites}){
                     },
                 }
             )
-            
-            console.log(response.status)
+            console.log('done axios request')
+            console.log(response.status);
+            if (response.status===200){
+                fetchGroups()
+                getInvites()
+            }
         } catch (error) {
             console.log(error)
         }
