@@ -63,6 +63,7 @@ export default function RegisterForm(){
                 type="text"
                 name="firstName"
                 id="firstName"
+                placeholder="First Name"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.firstName}
                 className="form__input"
@@ -74,6 +75,7 @@ export default function RegisterForm(){
                 type="text"
                 name="lastName"
                 id="lastName"
+                placeholder="Last Name"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.lastName}
                 className="form__input"
@@ -85,6 +87,7 @@ export default function RegisterForm(){
                 type="text"
                 name="email"
                 id="emailRegister"
+                placeholder="Email"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.email}
                 className="form__input"
@@ -96,6 +99,7 @@ export default function RegisterForm(){
                 type="password"
                 name="password"
                 id="passwordRegister"
+                placeholder="Password"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.password}
                 className="form__input"
@@ -107,6 +111,7 @@ export default function RegisterForm(){
                 type="password"
                 name="confirmPassword"
                 id="confirmPasswordRegister"
+                placeholder="Re-Enter Password"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.confirmPassword}
                 className="form__input"

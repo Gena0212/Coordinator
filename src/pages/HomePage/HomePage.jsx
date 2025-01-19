@@ -69,12 +69,12 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
         <>
         {isLoading && <h2>Loading....</h2>}
         {!isLoading && isLoggedIn ? 
-            <section>
+            <section className='home'>
                 <Header isLoggedIn={isLoggedIn}/>
-                <main className='home'>
+                {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups}/>}
+                <main className='home__main'>
                     <Sidebar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section>
-                        {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups}/>}
                         <h1>Welcome Home!</h1>
                         {invites.map((invite) => {
                             return <Invite key={invite.id} groupInfo={invite} getInvites={getInvites}/>

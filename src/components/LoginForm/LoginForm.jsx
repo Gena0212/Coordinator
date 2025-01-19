@@ -60,10 +60,11 @@ export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
     <>
       <form className="form" onSubmit={handleSubmit}>
         <div className="form__group">
-          <label htmlFor="email" className="form__label">Username</label>
+          <label htmlFor="email" className="form__label">Email</label>
           <input
             type="text"
             name="email"
+            placeholder="Email"
             value={formData.email}
             onChange={handleInputChange}
             className="form__input"
@@ -74,6 +75,7 @@ export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
           <input
             type="password"
             name="password"
+            placeholder="Password"
             value={formData.password}
             onChange={handleInputChange}
             className="form__input"

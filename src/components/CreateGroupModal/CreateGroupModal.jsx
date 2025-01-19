@@ -7,7 +7,7 @@ function CreateGroupModal({fetchGroups}){
 
     return(
         <section className="modal">
-            <h2>Create a New Group</h2>
+            <h2 className="modal__title">Create Your Group</h2>
             <CreateGroupForm fetchGroups={fetchGroups}/>
         </section>
     )

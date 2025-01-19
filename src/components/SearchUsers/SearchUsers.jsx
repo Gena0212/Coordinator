@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import "./SearchUsers.scss"
 
 export default function SearchUsers({usersAdded, setUsersAdded, handleInputChange, formInputs}) {
     const [listOfUsers, setListOfUsers] = useState([]);
@@ -41,19 +42,21 @@ export default function SearchUsers({usersAdded, setUsersAdded, handleInputChang
     }
 
     return(
-        <>
-            <label htmlFor='searchField'>Search:</label>
-            <input
-            name='searchField'
-            type="search"
-            placeholder="Search Users"
-            onChange={handleInputChange}
-            value={formInputs.searchField}
-            />
-            {formInputs.searchField !== "" && 
-            filteredUsers.map((userSearched)=>{
-                return <div key={userSearched.id} onClick={() => setUsersAdded({...usersAdded, [userSearched.id]:0})}>{`${userSearched.firstName} ${userSearched.lastName}`}</div>
-            })}
-        </>
+        <div className="search">
+          <label htmlFor='searchField' className="search__label">Search:</label>
+          <input
+          name='searchField'
+          type="search"
+          placeholder="Search Users"
+          onChange={handleInputChange}
+          value={formInputs.searchField}
+          className="search__input"
+          />
+          {formInputs.searchField !== "" && 
+          filteredUsers.map((userSearched)=>{
+              return <p key={userSearched.id} onClick={() => setUsersAdded({...usersAdded, [userSearched.id]:0})}>{`${userSearched.firstName} ${userSearched.lastName}`}</p>
+          })}
+        </div>
+        
     )
 }

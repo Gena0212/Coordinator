@@ -1,8 +1,20 @@
+@use '../../styles/partials/variables' as *;
+
 .modal{
     position: absolute;
     z-index: 3;
-    background-color: white;
-    color: black;
+    background-color: $senary-colour;
+    color: $nonary-colour;
+    padding: 1rem;
+    margin-top: 22.5rem;
     height: 20rem;
-    width: 30rem;
+    width: 19.25rem;
+    align-self: center;
+    border: 1px solid $decenary-colour;
+    border-radius: 1rem;
+
+    &__title {
+        font-size: 2.1rem;
+        margin: 0.75rem 0 0.5rem 0;
+    }
 }
