@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import "./SearchUsers.scss"
 import Scroll from "../Scroll/Scroll";
 import SearchList from "../SearchList/SearchList";
+import AddedUsers from "../AddedUsers/AddedUsers";
+
 
 export default function SearchUsers({usersAdded, setUsersAdded, handleInputChange, formInputs}) {
     const [listOfUsers, setListOfUsers] = useState([]);
@@ -55,9 +57,12 @@ export default function SearchUsers({usersAdded, setUsersAdded, handleInputChang
           className="search__input"
           />
           {formInputs.searchField !== "" && 
-          <Scroll>
-            <SearchList filteredUsers={filteredUsers} usersAdded={usersAdded} setUsersAdded={setUsersAdded}/>
-          </Scroll>
+          <>
+            <AddedUsers usersAdded={usersAdded}/>
+            <Scroll>
+              <SearchList filteredUsers={filteredUsers} usersAdded={usersAdded} setUsersAdded={setUsersAdded}/>
+            </Scroll>
+          </>
           }
         </div>
         

@@ -2,18 +2,16 @@
 @use '../../styles/partials/mixins' as *;
 
 .list {
-    margin: 0.25rem 1rem;
-    border: 1px solid $nonary-colour;
-    border-radius: 1rem;
-    width: fit-content;
-    padding: 0.5rem 1rem;
-    @include flex(column, normal, normal);
+    margin: 0.25rem 0;
+    border-bottom: 1px solid $nonary-colour;
+    width: 100%;
+    padding: 0.5rem 0 0.5rem 0.5rem;
+    @include flex(column, normal, flex-start);
     color: $duodenary-colour;
 
     &__name {
         font-size: 0.9rem;
         margin: 0;
-        align-self: flex-start;
     }
     
     &__email{

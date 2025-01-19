@@ -6,11 +6,13 @@ import Button from "../Button/Button";
 import './CreateGroupForm.scss';
  
 export default function CreateGroupForm({fetchGroups}){
-    const [usersAdded, setUsersAdded] = useState({})
+    const [usersAdded, setUsersAdded] = useState({users: []})
     const [formInputs, setFormInputs] = useState({
         groupName: "",
         searchField: "",
       });
+
+    const [errMessage, setErrMessage] = useState('')
 
     const authToken = localStorage.getItem('authToken');
 
@@ -21,10 +23,24 @@ export default function CreateGroupForm({fetchGroups}){
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        
+        if(formInputs.groupName === ''){
+            setErrMessage('Please enter a name for your group')
+            return;
+        }
+
+        if (usersAdded.users.length === 0){
+            setErrMessage('Please add users to your group')
+            return;
+        }
+
+        let memberObj = JSON.parse(JSON.stringify(usersAdded))
+        delete memberObj.users;
+        console.log(memberObj);
 
         const groupData = {
             groupName: formInputs.groupName, 
-            members: usersAdded
+            members: memberObj
         }
 
         try {
@@ -44,6 +60,8 @@ export default function CreateGroupForm({fetchGroups}){
         }
     }
 
+    console.log(usersAdded);
+
     return(
         <form className="form">
             <div className="form__group">
@@ -59,6 +77,7 @@ export default function CreateGroupForm({fetchGroups}){
             </div>
             <SearchUsers usersAdded={usersAdded} setUsersAdded={setUsersAdded} handleInputChange={handleInputChange} formInputs={formInputs}/>
             <Button className='button--form' onClick={handleSubmit}>Create Group</Button>
+            {errMessage && <p>{errMessage}</p>}
         </form>
     )
 }
