@@ -37,7 +37,7 @@ function Invite({groupInfo, getInvites, fetchGroups}){
             {members.length === 0 ?  
             <p>No other users in this group</p>:
                 <section className="invite__others">
-                    <p className="invite__p">Other users added to this group:</p>
+                    <p className="invite__p invite__p--bold">Other users added to this group:</p>
                     {members.map((member) => {
                         return (
                             <div className="invite__member" key={member.id}>

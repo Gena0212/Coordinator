@@ -1,2 +1,48 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 
+.fc { /* the calendar root */
+    max-width: 1100px;
+    margin: 0 auto;
+    height: 30rem;
+    font-size: 0.78rem;
+    font-weight: 400;
+}
+
+:root {
+    --fc-page-bg-color: inherit;
+    --fc-border-color: #bcd4e6;
+    --fc-button-bg-color: #bcd4e6;
+    --fc-button-border-color: #bcd4e6;
+    --fc-button-text-color: black;
+    --fc-button-hover-bg-color: #5072A7;
+    --fc-button-hover-border-color: #5072A7;
+    --fc-button-active-bg-color: #5072A7;
+    --fc-button-active-border-color: #5072A7;
+
+}
+
+.fc .fc-toolbar-title {
+    font-size: 1rem;
+    white-space: nowrap;
+    margin: 0 0.5rem;
+}
+// .fc-col-header colgroup {
+//     width: 0.1rem;
+// }
+
+.fc-toolbar-chunk {
+    @include flex(row, space-between, normal);
+}
+
+.fc .fc-button {
+    padding: 0.25rem;
+}
+
+
+
+
+// .fc-timegrid-slot {
+//     height: 1em;
+// }

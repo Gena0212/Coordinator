@@ -1,9 +1,11 @@
 @use '../../styles/partials/mixins' as *;
 
 .main {
-    @include flex(row, space-between, normal);
+    @include flex(column, space-between, normal);
 }
 
 .calendar{
-    width: 100%;
+    width: 95%;
+    height: 20rem;
+    padding: 0 2.5%;
 }

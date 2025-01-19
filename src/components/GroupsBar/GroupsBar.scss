@@ -6,6 +6,7 @@
     @include flex(row, flex-start, normal);
     width: 100%;
     background-color: $fifteenth-colour;
+    height: 6.5rem;
 
     &__header{
         @include flex(column, space-around, normal);

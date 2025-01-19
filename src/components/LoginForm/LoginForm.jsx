@@ -82,8 +82,8 @@ export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
           />
         </div>
         <Button className='button--form' type="submit">Sign In</Button>
+        {errorMessage && <p>{errorMessage}</p>}
       </form>
-      {errorMessage && <p>{errorMessage}</p>}
     </>
   );
 }

@@ -2,9 +2,9 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from '@fullcalendar/daygrid'
 import timeGridPlugin from '@fullcalendar/timegrid'
 import { useEffect, useState } from "react";
+import './Calendar.scss'
 
 function Calendar({groupData}){
-    console.log(groupData)
 
     const [eventsToRender, setEventsToRender] =  useState([])
 
@@ -16,7 +16,6 @@ function Calendar({groupData}){
                 const member = groupData[i];
                 for (let j = 0; j < member.events.length; j ++){
                     const event = member.events[j];
-                    console.log(event)
                     let newObj = {}
                     newObj['start'] = event.start.dateTime || event.start.date
                     newObj['end'] = event.end.dateTime || event.end.date
