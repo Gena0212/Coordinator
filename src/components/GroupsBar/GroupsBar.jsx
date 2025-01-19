@@ -15,6 +15,13 @@ function GroupsBar({groups, setIsModalOpen, fetchGroups}){
         setIsModalOpen(true)
     }   
 
+    let groupsToRender = [];
+    for (let i = groups.length-1; i >= 0; i --) {
+        groupsToRender.push(groups[i]);
+    }
+    console.log(groups)
+    console.log(groupsToRender);
+
     return(
         <section className='groups'>
             <section className='groups__header'>
@@ -22,7 +29,7 @@ function GroupsBar({groups, setIsModalOpen, fetchGroups}){
                 <Button onClick={openModal} className='button--add'>Add New Group</Button>
             </section>
             <section className='groups__items'>
-                {groups.map((group) => {
+                {groupsToRender.map((group) => {
                         return <GroupCard key={group.id} group={group} fetchGroups={fetchGroups}/>
                 })}
             </section>

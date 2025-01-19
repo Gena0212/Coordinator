@@ -3,7 +3,7 @@ import SearchUsers from "../SearchUsers/SearchUsers";
 import axios from "axios";
 import './CreateGroupForm.scss';
  
-export default function CreateGroupForm({fetchGroups}){
+export default function CreateGroupForm({fetchGroups, closeModal}){
     const [usersAdded, setUsersAdded] = useState({users: []})
     const [formInputs, setFormInputs] = useState({
         groupName: "",
@@ -51,6 +51,7 @@ export default function CreateGroupForm({fetchGroups}){
             );
             if(res.status===201){
                 fetchGroups()
+                closeModal()
             }
 
         } catch (error) {
@@ -74,7 +75,7 @@ export default function CreateGroupForm({fetchGroups}){
                     className="form__input"
                     />
                 </div>
-                <SearchUsers usersAdded={usersAdded} setUsersAdded={setUsersAdded} handleInputChange={handleInputChange} formInputs={formInputs} handleSubmit={handleSubmit} errMessage={errMessage}/>            
+                <SearchUsers usersAdded={usersAdded} setUsersAdded={setUsersAdded} handleInputChange={handleInputChange} formInputs={formInputs} handleSubmit={handleSubmit} errMessage={errMessage} />            
         </form>
     )
 }

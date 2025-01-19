@@ -15,7 +15,7 @@ function CreateGroupModal({fetchGroups, setIsModalOpen}){
              <img  onClick={closeModal} className='modal__icon' src={CrossIcon} alt="Cross Icon"/>
             
             <h2 className="modal__title">Create Your Group</h2>
-            <CreateGroupForm fetchGroups={fetchGroups}/>
+            <CreateGroupForm fetchGroups={fetchGroups} closeModal={closeModal}/>
         </section>
     )
 }
