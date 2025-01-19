@@ -8,7 +8,7 @@ export default function RegisterPage() {
         <>
             <Header isLoggedIn={false}/>
             <section className="register">
-                <h2>Register</h2>
+                <h1 className="register__title">Register</h1>
                 <RegisterForm/>
             </section>
         </>

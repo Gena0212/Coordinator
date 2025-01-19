@@ -7,12 +7,13 @@
     }
 
     &__label {
-        margin: 1.25rem 0 0.5rem 0.25rem;
+        margin-left: 0.5rem;
         align-self: flex-start;
     }
 
     &__input {
         border-radius: 1rem;
         padding: 0.35rem;
+        margin: 0.55rem 0 1.25rem 0;
     }
 }

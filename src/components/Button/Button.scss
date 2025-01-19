@@ -1,6 +1,15 @@
+@use "../../styles/partials/variables" as *;
+
 .button {
     font-family: 'NunitoSans', sans-serif;
     font-weight: 400;
-    border-radius: 0.25rem;
+    border-radius: 1.5rem;
     background-color: inherit;
+    font-size: 1.25rem;
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.45rem;
+    background-color: $secondary-colour;
+    color: $senary-colour;
+    border: none;
 }

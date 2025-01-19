@@ -80,7 +80,7 @@ export default function RegisterForm(){
               />
             </div>
             <div className="form__group">
-              <label htmlFor="emailRegister" className="form__label">Email associated with your google calendar:</label>
+              <label htmlFor="emailRegister" className="form__label">Email linked to your google calendar:</label>
               <input
                 type="text"
                 name="email"
