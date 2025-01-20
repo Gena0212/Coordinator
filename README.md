@@ -41,7 +41,10 @@ List the pages of your app with brief descriptions. You can show this visually, 
 
 ### Mockups
 
-Provide visuals of your app's screens. You can use pictures of hand-drawn sketches, or wireframing tools like Figma.
+Home Page:
+[Drawing (1).pdf](https://github.com/user-attachments/files/18472266/Drawing.1.pdf)
+
+
 
 ### Data
 
