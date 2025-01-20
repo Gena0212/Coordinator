@@ -7,8 +7,9 @@ import Header from "../../components/Header/Header";
 import GroupsBar from "../../components/Groupsbar/Groupsbar";
 import UsersBar from "../../components/UsersBar/UsersBar";
 import { compileString } from "sass";
+import CreateGroupModal from "../../components/CreateGroupModal/CreateGroupModal";
 
-function GroupPage({ groups, setIsModalOpen, fetchGroups}){
+function GroupPage({ groups, isModalOpen, setIsModalOpen, fetchGroups, userData}){
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [groupData, setGroupData] = useState([])
@@ -49,8 +50,9 @@ function GroupPage({ groups, setIsModalOpen, fetchGroups}){
         {isLoading ? 
         <h2>Loading....</h2> :
         (isLoggedIn ?
-            <>    
+            <section className="group-page">    
                 <Header isLoggedIn={isLoggedIn}/>
+                {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups} setIsModalOpen={setIsModalOpen}/>}
                 <main className="main">
                     <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <UsersBar groupData={groupData} setGroupData={setGroupData}/>
@@ -58,7 +60,7 @@ function GroupPage({ groups, setIsModalOpen, fetchGroups}){
                         <Calendar groupData={groupData}/>
                     </section>
                 </main>
-            </>
+            </section>
         : <p>You must be logged in to see this page</p>)
         }
         </>

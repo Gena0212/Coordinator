@@ -33,6 +33,8 @@ export default function SearchUsers({usersAdded, setUsersAdded, handleInputChang
         getUsersList();
       }, []);
 
+
+
     if(listOfUsers.length !== 0){
         filteredUsers = listOfUsers.filter(
             user => {

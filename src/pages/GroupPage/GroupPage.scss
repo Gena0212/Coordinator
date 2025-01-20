@@ -1,5 +1,7 @@
 @use '../../styles/partials/mixins' as *;
 
+
+
 .main {
     @include flex(column, space-between, normal);
 }

@@ -10,9 +10,10 @@ export default function CreateGroupForm({fetchGroups, closeModal}){
         searchField: "",
       });
 
-    const [errMessage, setErrMessage] = useState('')
-
-    const authToken = localStorage.getItem('authToken');
+      const [errMessage, setErrMessage] = useState('')
+      
+      const authToken = localStorage.getItem('authToken');
+      console.log(authToken);
 
 
     const handleInputChange = (e) => {
@@ -32,6 +33,8 @@ export default function CreateGroupForm({fetchGroups, closeModal}){
             return;
         }
 
+        
+
         let memberObj = JSON.parse(JSON.stringify(usersAdded))
         delete memberObj.users;
         console.log(memberObj);
@@ -40,6 +43,7 @@ export default function CreateGroupForm({fetchGroups, closeModal}){
             groupName: formInputs.groupName, 
             members: memberObj
         }
+
 
         try {
             const res = await axios.post(`${import.meta.env.VITE_API_BASE_URL}/groups`, groupData, 

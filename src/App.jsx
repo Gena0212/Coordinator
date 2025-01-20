@@ -18,6 +18,7 @@ function App() {
       password: "",
   });
   
+  console.log(userData);
 
   const apiURL = import.meta.env.VITE_API_BASE_URL
   const authToken = localStorage.getItem('authToken');
@@ -64,8 +65,8 @@ function App() {
         <Route path="/" element={<RegisterPage/>} />
         <Route path="/login" element={<LoginPage formData={formData} setFormData={setFormData} />} />
         <Route path='/google' element={<GoogleLoginPage formData={formData}/>}/>
-        <Route path="/home" element={<HomePage userData={userData} getUserData={getUserData} groups={groups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}/>
-      <Route path="/calendar/:id" element={<GroupPage groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>} />
+        <Route path="/home" element={<HomePage userData={userData} getUserData={getUserData} groups={groups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} />}/>
+      <Route path="/calendar/:id" element={<GroupPage groups={groups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups} userData={userData}/>} />
       </Routes>
     </div>
     </BrowserRouter>
