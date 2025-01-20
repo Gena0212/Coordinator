@@ -10,6 +10,7 @@ import GoogleLoginPage from './pages/GoogleLoginPage/GoogleLoginPage';
 
 function App() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [userData, setUserData] = useState({});
   const [groups, setGroups] = useState([]);
 
   const [formData, setFormData] = useState({
@@ -20,6 +21,25 @@ function App() {
 
   const apiURL = import.meta.env.VITE_API_BASE_URL
   const authToken = localStorage.getItem('authToken');
+
+  const getUserData = async () => {
+    try {
+      // The user must be logged in to access this page and API endpoint.
+      // Send a GET request to `/users/profile` along with the JWT token from localStroage as a header
+      const { data } = await axios.get(
+        `${apiURL}/users/profile`,
+        {
+          headers: {
+            authorisation: `Bearer ${authToken}`,
+          }, 
+        }
+      );
+
+      setUserData(data);
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   const fetchGroups = async () => {
     try {
@@ -44,7 +64,7 @@ function App() {
         <Route path="/" element={<RegisterPage/>} />
         <Route path="/login" element={<LoginPage formData={formData} setFormData={setFormData} />} />
         <Route path='/google' element={<GoogleLoginPage formData={formData}/>}/>
-        <Route path="/home" element={<HomePage groups={groups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}/>
+        <Route path="/home" element={<HomePage userData={userData} getUserData={getUserData} groups={groups} fetchGroups={fetchGroups} isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen}/>}/>
       <Route path="/calendar/:id" element={<GroupPage groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>} />
       </Routes>
     </div>

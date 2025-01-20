@@ -9,7 +9,7 @@ import GroupsBar from '../../components/Groupsbar/Groupsbar';
 // import { JWT } from 'google-auth-library';
 
 
-function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
+function HomePage({userData, getUserData, groups, fetchGroups, isModalOpen, setIsModalOpen}){
     const [isLoggedIn, setIsLoggedIn] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
     const [invites, setInvites] = useState([]);
@@ -18,6 +18,7 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
 
     const authToken = localStorage.getItem('authToken');
 
+    console.log(userData);
 
     const getInvites = async () => {
         try {
@@ -62,6 +63,7 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
     useEffect(()=>{
         updateEvents();
         getInvites();
+        getUserData();
     }, [])
 
 
@@ -75,7 +77,7 @@ function HomePage({groups, fetchGroups, isModalOpen, setIsModalOpen}){
                 <main className='home__main'>
                     <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <section>
-                        <h2 className='home__title'>Welcome Back!</h2>
+                        <h2 className='home__title'>{`Welcome Back, ${userData.firstName}!`}</h2>
                         {invites.length === 0 ? 
                         <h3>You have no invites at the moment</h3>
                         : 
