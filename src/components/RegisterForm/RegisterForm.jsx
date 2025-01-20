@@ -25,14 +25,19 @@ export default function RegisterForm(){
     const handleSubmit = async (e) => {
         e.preventDefault();
     
-        if (!formData.email || !formData.password || !formData.firstName || !formData.lastName || !formData.confirmPassword) {
+        if (!formData.email.replaceAll(" ", "") || !formData.password.replaceAll(" ", "") || !formData.firstName.replaceAll(" ", "") || !formData.lastName.replaceAll(" ", "") || !formData.confirmPassword.replaceAll(" ", "")) {
           setErrorMessage("You must fill in all the form fields");
+          return;
+        }
+
+        if(formData.password !== formData.confirmPassword){
+          setErrorMessage("Passwords do not match");
           return;
         }
     
         // Check the format of the email address via a regular expression
         if (!emailRegex.test(formData.email)) {
-          setErrorMessage("The email address is not valid. Expected format: x@x.xx");
+          setErrorMessage("The email address is not valid.");
           return;
         }
     
