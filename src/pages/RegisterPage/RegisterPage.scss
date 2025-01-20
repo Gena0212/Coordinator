@@ -1,8 +1,23 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .register {
+    @include flex(column, space-evenly, center);
+    height: 35rem;
+
     &__title {
         margin-bottom: 0.4rem;
         color: $nonary-colour;
     }
+
+    &__link{
+        text-decoration: none;
+        color: $sixteenth-colour;
+        
+        &:hover {
+            cursor: pointer;
+            color: $quinary-colour;
+        }
+    }
+
 }

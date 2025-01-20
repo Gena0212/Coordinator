@@ -4,6 +4,7 @@
 
 .form {
     padding: 0 1.25rem;
+    height: 30rem;
 
     &__group{
         @include flex(column, normal, normal);

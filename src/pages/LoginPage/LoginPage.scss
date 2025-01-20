@@ -1,8 +1,22 @@
 @use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
 
 .login {
+    @include flex(column, space-between, normal);
+    height: 24rem;
+
     &__title {
         margin-bottom: 0.4rem;
         color: $nonary-colour;
+    }
+
+    &__link{
+        text-decoration: none;
+        color: $sixteenth-colour;
+        
+        &:hover {
+            cursor: pointer;
+            color: $quinary-colour;
+        }
     }
 }

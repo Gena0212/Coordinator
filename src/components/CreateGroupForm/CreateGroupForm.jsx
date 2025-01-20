@@ -62,17 +62,17 @@ export default function CreateGroupForm({fetchGroups, closeModal}){
     console.log(usersAdded);
 
     return(
-        <form className="form">
+        <form className="create-form">
             
-                <div className="form__group">
-                    <label htmlFor="groupName" className="form__label">Group Name:</label>
+                <div className="create-form__group">
+                    <label htmlFor="groupName" className="create-form__label">Group Name:</label>
                     <input
                     type="text"
                     name="groupName"
                     value={formInputs.groupName}
                     onChange={handleInputChange}
                     placeholder="Your Group Name"
-                    className="form__input"
+                    className="create-form__input"
                     />
                 </div>
                 <SearchUsers usersAdded={usersAdded} setUsersAdded={setUsersAdded} handleInputChange={handleInputChange} formInputs={formInputs} handleSubmit={handleSubmit} errMessage={errMessage} />            

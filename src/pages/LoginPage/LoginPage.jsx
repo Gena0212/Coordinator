@@ -3,6 +3,7 @@ import axios from 'axios';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Header from '../../components/Header/Header';
 import './LoginPage.scss'
+import { Link } from 'react-router-dom';
 // import googleButton from '../../assets/images/btn_google_signin_dark_pressed_web.png'
 
 
@@ -58,6 +59,9 @@ const LoginPage = ({formData, setFormData}) => {
           <section className='login'>
             <h1 className='login__title'>Login</h1>
             <LoginForm formData={formData} setFormData={setFormData} setIsLoggedIn={setIsLoggedIn} />
+            <Link className="login__link" to={'/'}>
+                <p>New to this app? Click here to register!</p>
+            </Link>
           </section>
         </>
       {/* )} */}
