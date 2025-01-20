@@ -44,6 +44,9 @@ List the pages of your app with brief descriptions. You can show this visually, 
 Home Page:
 [Drawing (1).pdf](https://github.com/user-attachments/files/18472266/Drawing.1.pdf)
 
+Group Page, where all members calendar info will be displayed:
+[Drawing.sketchpad.pdf](https://github.com/user-attachments/files/18472307/Drawing.sketchpad.pdf)
+
 
 
 ### Data
