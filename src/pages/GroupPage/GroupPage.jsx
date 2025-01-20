@@ -38,7 +38,7 @@ function GroupPage({ groups, setIsModalOpen, fetchGroups}){
         }
     }
     
-    let events = []
+    // let events = []
     
     useEffect(() => {
         fetchGroupDetails(id);
@@ -53,7 +53,7 @@ function GroupPage({ groups, setIsModalOpen, fetchGroups}){
                 <Header isLoggedIn={isLoggedIn}/>
                 <main className="main">
                     <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
-                    <UsersBar groupData={groupData}/>
+                    <UsersBar groupData={groupData} setGroupData={setGroupData}/>
                     <section className="calendar">
                         <Calendar groupData={groupData}/>
                     </section>

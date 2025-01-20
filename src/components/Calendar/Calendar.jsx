@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import './Calendar.scss'
 
 function Calendar({groupData}){
-
+    console.log(groupData)
     const [eventsToRender, setEventsToRender] =  useState([])
 
     useEffect(() => {
@@ -14,12 +14,14 @@ function Calendar({groupData}){
         if (groupData.length !== 0){
             for (let i = 0; i < groupData.length; i ++){
                 const member = groupData[i];
-                for (let j = 0; j < member.events.length; j ++){
-                    const event = member.events[j];
-                    let newObj = {}
-                    newObj['start'] = event.start.dateTime || event.start.date
-                    newObj['end'] = event.end.dateTime || event.end.date
-                    tempEventArray.push(newObj);
+                if(member.isChecked){
+                    for (let j = 0; j < member.events.length; j ++){
+                        const event = member.events[j];
+                        let newObj = {}
+                        newObj['start'] = event.start.dateTime || event.start.date
+                        newObj['end'] = event.end.dateTime || event.end.date
+                        tempEventArray.push(newObj);
+                    }
                 }
             }
         }
