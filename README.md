@@ -32,7 +32,7 @@ Click add or remove scopes and add https://www.googleapis.com/auth/calendar as y
 
 Add the email that you want to use when testing the project in Test Users. Note you can add multiple users, and as this project is based on users interacting with other users, I encourage you to add multiple emails to see the full scope of this project. Save and continue.
 
-Next, on the left side bar, navigate to 'Credentials'. Click 'Create Credentials', then 'OAuth client ID'. Enter 'Web application' as the application type, no need to change the name. Under 'Authorized Javascript origins', add the URL of your frontend component (ex. http://localhost:5173). Add this URL to the .env file of your server component as your CLIENT_URL and with /callback at the end in your .env file in your client component (ex.http://localhost:5173/callback).
+Next, on the left side bar, navigate to 'Credentials'. Click 'Create Credentials', then 'OAuth client ID'. Enter 'Web application' as the application type, no need to change the name. Under 'Authorized Javascript origins', add the URL of your frontend component (ex. http://localhost:5173). Add this URL to the .env file of your server component as your CLIENT_URL and with /callback at the end in your .env file in your client component as your REDIRECT_URI (ex.http://localhost:5173/callback).
 
 Under 'Authorized redirect URIs', and your servers URL with /oauth/redirect attached to the end, also add this URL (ex. http://localhost:8000/oauth/redirect) to the .env file in your backend as your REDIRECT_URL. Click create. It may take a few hours for this setting to take effect, according to Google. It will then show you your Client ID and Client Secret, add these values to your .env file in both the client and server components.
 
