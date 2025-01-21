@@ -9,6 +9,17 @@ The coordinator app is a visual aid to help you coordinate meetup times with you
 
 In this day and age people are finding it difficult to find a time when they are all free. This app provides an easy visual of when everyone is available, making it easy to coordinate activities with multiple people.
 
+### User Profile
+
+The app user is any individual who wants any easy way to see when one or more people are available. The user will log into the app, and give the app access to their google calendar information. The app must be intuitive to any ordinary technology user. 
+
+
+### Features
+
+The ability to create group with other app users. When the group is clicked on, a calendar will pop up which visually shows when all group members are free, only some members are free or no one is free. When a group is created, users added to the group will have to accept the invite into the group and give consent to some of their google calendar info being shared with others in the group. 
+
+A login and register page that stores data in a sql database.
+
 ### How To Install This Project
 
 Clone the repository. Make sure to also clone the backend from the following respository: https://github.com/Gena0212/Coordinator-back-end. Please note that for now the finished project is on the branch try-oauth for both repositories. 
@@ -37,18 +48,6 @@ Make sure you install google-auth-library by running npm i google-auth-library i
 
 You can start the project by running npm start in the terminal of the backend component and npm run dev in the terminal of your frontend component. 
 
-
-### User Profile
-
-The app user is any individual who wants any easy way to see when one or more people are available. The user will log into the app, and give the app access to their google calendar information. The app must be intuitive to any ordinary technology user. 
-
-
-
-### Features
-
-The ability to create group with other app users. When the group is clicked on, a calendar will pop up which visually shows when all group members are free, only some members are free or no one is free. When a group is created, users added to the group will have to accept the invite into the group and give consent to some of their google calendar info being shared with others in the group. 
-
-A login and register page that stores data in a sql database.
 
 ## Implementation
 
