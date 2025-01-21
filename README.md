@@ -28,7 +28,7 @@ Next, on the left side bar, navigate to 'Credentials'. Click 'Create Credentials
 
 Under 'Authorized redirect URIs', and your servers URL with /auth/redirect attached to the end, also add this URL (ex. http://localhost:8000//auth/redirect) to the .env file in your backend as your REDIRECT_URL. Click create. It may take a few hours for this setting to take effect, according to Google. It will then show you your Client ID and Client Secret, add these values to your .env file in both the client and server components.
 
-Update the .env file in your server component by adding a PORT that matches the REDIRECT_URL, add a DB_NAME, DB_USER, DB_PASSWORD and JWT_SECRET. You can create the JWT secret by running `node` and then `crypto.randomBytes(64).toString("hex")` in your terminal.
+Update the .env file in your server component by adding a PORT that matches the REDIRECT_URL, add a DB_NAME, DB_USER, DB_PASSWORD (after creating a sql database) and JWT_SECRET. You can create the JWT secret by running `node` and then `crypto.randomBytes(64).toString("hex")` in your terminal.
 
 
 Add your API URL to your .env file in your client component as VITE_API_BASE_URL. 
