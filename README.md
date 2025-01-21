@@ -20,7 +20,7 @@ A login and register page that stores data in a sql database.
 
 ### How To Install This Project
 
-Clone the repository. Make sure to also clone the backend from the following respository: https://github.com/Gena0212/Coordinator-back-end. Please note that for now the finished project is on the branch try-oauth for both repositories.
+Clone the repository. Make sure to also clone the backend from the following respository: https://github.com/Gena0212/Coordinator-back-end.
 
 You must set up a google developer console to run this project. To do this, go to https://console.cloud.google.com and login (or create an account if you do not already have one). After logging in create a project (should be able to do this by clicking the 'Select a project' button in the header'. When creating the project, you only need to add a name, you do not need to choose a location.
 
