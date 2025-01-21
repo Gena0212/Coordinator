@@ -20,7 +20,7 @@ Open the side bar by clicking on the button with three horizontal lines and clic
 
 Click on OAuth consent screen on the side bar on the left side. Create a new OAuth consent screen, add a name and your email as the user support email and the developer contact information. Save and continue. 
 
-Click add or remove scopes and add https://www.googleapis.com/auth/calendar as your scope. Add this scopes to your .env file in the backend. Save and continue.
+Click add or remove scopes and add https://www.googleapis.com/auth/calendar as your scope. Save and continue.
 
 Add the email that you want to use when testing the project in Test Users. Note you can add multiple users, and as this project is based on users interacting with other users, I encourage you to add multiple emails to see the full scope of this project. Save and continue.
 
