@@ -9,9 +9,11 @@ The coordinator app is a visual aid to help you coordinate meetup times with you
 
 In this day and age people are finding it difficult to find a time when they are all free. This app provides an easy visual of when everyone is available, making it easy to coordinate activities with multiple people.
 
-##How To Install This Project
+### How To Install This Project
 
 Clone the repository. Make sure to also clone the backend from the following respository: https://github.com/Gena0212/Coordinator-back-end. Please note that for now the finished project is on the branch try-oauth for both repositories. 
+
+You must set up a google developer console to run this project. To do this, go to https://console.cloud.google.com and login (or create an account if you do not already have one). After logging in create a project (should be able to do this by clicking the 'Select a project' button in the header'. When creating the project, you only need to add a name, you do not need to choose a location.
 
 ### User Profile
 
