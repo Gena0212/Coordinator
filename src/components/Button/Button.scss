@@ -1,0 +1,44 @@
+@use "../../styles/partials/variables" as *;
+
+.button {
+    font-family: 'NunitoSans', sans-serif;
+    font-weight: 400;
+    font-size: 0.75rem;
+    background-color: $primary-colour;
+    border: 1.5px solid $decenary-colour;
+    color: $septenary-colour;
+    padding: 0.1rem 0.35rem;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 1.5rem;
+
+    &:hover {
+        cursor: pointer;
+    }
+    
+    &--form{
+        margin-top: 0.45rem;
+        padding: 0.6rem;
+        background-color: $secondary-colour;
+        color: $senary-colour;
+        border: none;
+        font-size: 1.25rem;
+        width: 100%;
+    }
+
+    &--logout{
+        background-color: $senary-colour;
+        color: $nonary-colour;
+        border: none;
+        font-weight: 700;
+        align-self: flex-start;
+    }
+
+    &--add{
+        width: 8rem;
+        margin-top: 0.25rem;
+    }
+    &--accept{
+        padding: 0.25rem 1rem;
+    }
+}

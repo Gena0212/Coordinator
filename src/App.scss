@@ -1,0 +1,24 @@
+@use './styles/partials/fonts' as *;
+@use './styles/partials/variables' as *;
+@use './styles/partials/global' as *;
+
+#root {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background-color: $primary-colour;
+}
+
+.app {
+  font-family: 'NunitoSans', sans-serif;
+  font-weight: 400;
+  width: 100%;
+  height: 100%;
+}
+
+html, body, #app, #app>div {
+  height: 100%
+}
+
+

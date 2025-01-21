@@ -1,0 +1,9 @@
+// flex layouts (type "normal" if no need to use all four of them)
+@mixin flex($direction, $justify, $align) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+  }
+  // e.g. @include flex (flex, column, space-between, flex-center)
+  // e.g. @include flex (flex, row, normal, normal)

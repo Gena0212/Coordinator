@@ -1,0 +1,43 @@
+@use '../../styles/partials/variables' as *;
+
+.invite {
+    border: 1px solid $tertiary-colour;
+    border-radius: 2rem;
+    width: 12rem;
+    padding: 0.5rem 3rem 2rem 3rem;
+    margin-bottom: 1.5rem;
+
+    &__p{
+        margin: 0.5rem 0 0.35rem 0;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        color: $nonary-colour;
+
+        &--bold{
+            font-weight: 700;
+        }
+    }
+    &__group {
+        font-weight: 700;
+        font-size: 1.95rem;
+        margin: 0 0 0.75rem 0;
+    }
+
+    &__others{
+        margin-bottom: 1rem;
+    }
+
+    &__member {
+        margin: 0.25rem 0 0.5rem 0;
+    }
+
+    &__name{
+        margin: 0;
+        font-size: 0.9rem;
+    }
+
+    &__email {
+        margin: 0;
+        font-size: 0.75rem;
+    }
+}

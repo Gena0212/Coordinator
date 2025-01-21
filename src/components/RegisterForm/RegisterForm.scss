@@ -1,0 +1,28 @@
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+
+.form {
+    padding: 0 1.25rem;
+    height: 30rem;
+
+    &__group{
+        @include flex(column, normal, normal);
+    }
+
+    &__label {
+        margin-left: 0.5rem;
+        align-self: flex-start;
+    }
+
+    &__input {
+        border-radius: 1rem;
+        padding: 0.35rem;
+        margin: 0.55rem 0 1.25rem 0;
+        border-color: $nonary-colour;
+
+        &::placeholder {
+            color: $undenary-colour ;
+        }
+    }
+}

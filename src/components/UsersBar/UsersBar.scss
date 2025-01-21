@@ -1,0 +1,25 @@
+@use '../../styles/partials/mixins' as *;
+
+.users-bar{
+    @include flex(row, normal, center);
+
+    &__header {
+        white-space: nowrap;
+        font-size: 1rem;
+        margin-left: 0.5rem;
+    }
+    &__users{
+        overflow-y: scroll;
+        @include flex(row, normal, center);
+    }
+
+    &__user{
+        display: flex;
+    }
+
+    &__name {
+        white-space: nowrap;
+        margin-left: 1rem;
+        font-size: .875rem;
+    }
+}
