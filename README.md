@@ -13,11 +13,26 @@ In this day and age people are finding it difficult to find a time when they are
 
 Clone the repository. Make sure to also clone the backend from the following respository: https://github.com/Gena0212/Coordinator-back-end. Please note that for now the finished project is on the branch try-oauth for both repositories. 
 
-You must set up a google developer console to run this project. To do this, go to https://console.cloud.google.com and login (or create an account if you do not already have one). After logging in create a project (should be able to do this by clicking the 'Select a project' button in the header'. When creating the project, you only need to add a name, you do not need to choose a location.
+You must set up a google developer console to run this project. To do this, go to https://console.cloud.google.com and login (or create an account if you do not already have one). After logging in create a project (should be able to do this by clicking the 'Select a project' button in the header'. When creating the project, you only need to add a name, you do not need to choose a location. 
+
+
+Open the side bar by clicking on the button with three horizontal lines and click 'APIs & Services'. Navigate to 'Enabled APIs and Services' and click 'Enable APIs and Services'. Search for Google Calendar API and enable it.
+
+Click on OAuth consent screen on the side bar on the left side. Create a new OAuth consent screen, add a name and your email as the user support email and the developer contact information. Save and continue. 
+
+Click add or remove scopes and add https://www.googleapis.com/auth/calendar.readonly and https://www.googleapis.com/auth/calendar as your scopes. Add these scopes to your .env file in the frontend. Save and continue.
+
+Add the email that you want to use when testing the project in Test Users. Note you can add multiple users, and as this project is based on users interacting with other users, I encourage you to add multiple emails to see the full scope of this project. Save and continue.
+
+Next, on the left side bar, navigate to 'Credentials'. Click 'Create Credentials', then 'OAuth client ID'. Enter 'Web application' as the application type, no need to change the name. Under 'Authorized Javascript origins', add the URL of your frontend component (ex. http://localhost:5173). Under 'Authorized redirect URIs', and your servers URL with /auth/redirect attached to the end, also add this URL to the .env file in your backend. Click create. It will them show you your Client ID and Client Secret, add these values to your .env file in your server component.
+
+Make sure you install google-auth-library (npm i google-auth-library). 
 
 ### User Profile
 
-The app user is any individual who wants any easy way to see when one or more people are available. The user will log into the app, and give the app access to their google calendar information. The app must be intuitive to any ordinary technology user.
+The app user is any individual who wants any easy way to see when one or more people are available. The user will log into the app, and give the app access to their google calendar information. The app must be intuitive to any ordinary technology user. 
+
+
 
 ### Features
 
