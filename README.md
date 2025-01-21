@@ -33,7 +33,10 @@ Update the .env file in your server component by adding a PORT that matches the 
 
 Add your API URL to your .env file in your client component as VITE_API_BASE_URL. 
 
-Make sure you install google-auth-library (npm i google-auth-library). 
+Make sure you install google-auth-library by running npm i google-auth-library in your terminal.
+
+You can start the project by running npm start in the terminal of the backend component and npm run dev in the terminal of your frontend component. 
+
 
 ### User Profile
 
