@@ -1,13 +1,14 @@
 @use '../../styles/partials/mixins' as *;
-
+@use '../../styles/partials/variables' as *;
 
 
 .main {
     @include flex(column, space-between, normal);
-}
+    background-color: $thirteenth-colour;
 
-.calendar{
-    width: 95%;
-    height: 20rem;
-    padding: 0 2.5%;
+    &__calendar{
+        width: 95%;
+        height: 20rem;
+        padding: 0 2.5%;
+    }
 }

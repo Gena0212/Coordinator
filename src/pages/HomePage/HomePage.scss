@@ -1,11 +1,14 @@
 @use '../../styles/partials/fonts' as *;
 @use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
 
 
 .home {
-    @include flex(column, space-evenly, center);
+    @include flex(column, normal, center);
     font-family: 'NunitoSans', sans-serif;
     font-weight: 400;
+    background-color: $thirteenth-colour;
+    height: 100%;
 
     &__main{
         @include flex(column, space-around, normal);
@@ -13,9 +16,18 @@
         width: 100%;
     }
 
+
     &__title {
         font-size: 2rem;
-        padding: 1rem 0 0.75rem 0;
+        padding: 1.75rem 0 0.75rem 0;
+        color: $fourteenth-colour;
+    }
+
+    &__message{
+        font-size: 0.9rem;
+        color: $nonary-colour;
+        font-weight: 400;
+        margin-top: 1.35rem;
     }
 
     &__invite{

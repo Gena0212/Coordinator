@@ -76,10 +76,10 @@ function HomePage({userData, getUserData, groups, fetchGroups, isModalOpen, setI
                 {isModalOpen && <CreateGroupModal fetchGroups={fetchGroups} setIsModalOpen={setIsModalOpen}/>}
                 <main className='home__main'>
                     <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
-                    <section>
+                    <section className='home__profile'>
                         <h2 className='home__title'>{`Welcome Back, ${userData.firstName}!`}</h2>
                         {invites.length === 0 ? 
-                        <h3>You have no invites at the moment</h3>
+                        <h3 className='home__message'>You have no invites at the moment</h3>
                         : 
                         <section className='home__invite'>
                             {invites.map((invite) => {

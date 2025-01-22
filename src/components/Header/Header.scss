@@ -6,6 +6,7 @@
     @include flex(row, space-between, center);
     padding: 1.5rem 0.5rem 0.25rem 0rem;
     width: 100%;
+    background-color: $primary-colour;
 
     &__logo {
         width: 18rem;
