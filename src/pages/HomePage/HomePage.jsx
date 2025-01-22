@@ -5,7 +5,8 @@ import CreateGroupModal from '../../components/CreateGroupModal/CreateGroupModal
 import LoginForm from '../../components/LoginForm/LoginForm';
 import Invite from '../../components/Invite/Invite';
 import Header from '../../components/Header/Header';
-import GroupsBar from '../../components/Groupsbar/Groupsbar';
+import GroupsBar from '../../components/GroupsBar/GroupsBar'
+// import GroupsBar from '../../components/Groupsbar/Groupsbar';
 // import { JWT } from 'google-auth-library';
 
 

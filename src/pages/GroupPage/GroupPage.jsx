@@ -4,7 +4,8 @@ import { useParams } from "react-router-dom";
 import Calendar from '../../components/Calendar/Calendar';
 import './GroupPage.scss'
 import Header from "../../components/Header/Header";
-import GroupsBar from "../../components/Groupsbar/Groupsbar";
+import GroupsBar from "../../components/GroupsBar/GroupsBar"
+// import GroupsBar from "../../components/Groupsbar/Groupsbar";
 import UsersBar from "../../components/UsersBar/UsersBar";
 import { compileString } from "sass";
 import CreateGroupModal from "../../components/CreateGroupModal/CreateGroupModal";
