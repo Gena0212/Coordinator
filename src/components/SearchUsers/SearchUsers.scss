@@ -3,10 +3,14 @@
 
 .search {
     @include flex(column, normal, normal);
-
+    
     &__label {
         margin-left: 0.5rem;
         align-self: flex-start;
+
+        @include desktop {
+            font-size: 1.25rem;
+        }
     }
 
     &__input {
@@ -18,6 +22,10 @@
 
         &::placeholder {
             color: $undenary-colour;
+        }
+
+        @include desktop {
+            font-size: 1.1rem;
         }
     }
     &__scroll{

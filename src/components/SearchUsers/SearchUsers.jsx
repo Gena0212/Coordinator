@@ -59,13 +59,13 @@ export default function SearchUsers({usersAdded, setUsersAdded, handleInputChang
           className="search__input"
           />
           <Button className='button--form' onClick={handleSubmit}>Create Group</Button>
-          {errMessage && <p>{errMessage}</p>}
           {usersAdded.users.length !== 0 && <AddedUsers usersAdded={usersAdded} setUsersAdded={setUsersAdded}/>}
           {formInputs.searchField !== "" && 
           <div className="search__scroll">
             <SearchList filteredUsers={filteredUsers} usersAdded={usersAdded} setUsersAdded={setUsersAdded}/>
           </div>
           }
+          {errMessage && <p>{errMessage}</p>}
         </div>
         
     )

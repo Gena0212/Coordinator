@@ -3,8 +3,8 @@
 
 
 .create-form {
-    padding: 0 1.25rem;
-    height: 25rem;
+    padding: 0.5rem 1.25rem;
+    height: 23rem;
 
     &__group{
         @include flex(column, normal, normal);
@@ -13,6 +13,10 @@
     &__label {
         margin-left: 0.5rem;
         align-self: flex-start;
+
+        @include desktop {
+            font-size: 1.25rem;
+        }
     }
 
     &__input {
@@ -20,6 +24,10 @@
         padding: 0.35rem;
         margin: 0.55rem 0 1rem 0;
         border-color: $nonary-colour;
+
+        @include desktop {
+            font-size: 1.1rem;
+        }
 
         &::placeholder {
             color: $undenary-colour;
