@@ -5,8 +5,10 @@
 .groups{
     @include flex(row, flex-start, normal);
     width: 100%;
-    background-color: $fifteenth-colour;
-    height: 6.5rem;
+    background-color: $octonary-colour;
+    height: 6rem;
+    border-bottom: 0.5px solid $secondary-colour;
+    border-top: 0.5px solid $secondary-colour;
 
     &__header{
         @include flex(column, space-around, normal);

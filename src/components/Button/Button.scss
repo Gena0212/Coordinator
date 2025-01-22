@@ -30,16 +30,18 @@
     }
 
     &--logout{
-        background-color: $senary-colour;
         color: $nonary-colour;
         border: none;
         font-weight: 700;
         align-self: flex-start;
+        font-size: 0.94rem;
+        padding: 0 0.25rem 0 0;
     }
 
     &--add{
         width: 8rem;
-        margin-top: 0.25rem;
+        font-weight: 400;
+        border: 1px solid $secondary-colour;
     }
     &--accept{
         padding: 0.25rem 1rem;

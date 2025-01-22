@@ -2,15 +2,16 @@
 
 .group-card{
     display: flex;
-    background-color: $fifteenth-colour;
+    background-color: $primary-colour;
     border-radius: 1.5rem;
     border: 1px solid $decenary-colour;
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
 
     &__navlink{
         text-decoration: none;
-        color: $sixteenth-colour;
+        color: $duodenary-colour;
     }
+
     &__name {
         font-weight: 700;
         font-size: 1rem;
