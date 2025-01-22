@@ -1,5 +1,21 @@
+@use "../../styles/partials/mixins" as *;
+
 .google{
-    width: 21rem;
-    margin-top: 3rem;
-    
+    @include flex(column, space-around, center);
+
+    &__h3{
+        margin-top: 1rem;
+    }
+
+    &__h4 {
+        font-weight: 400;
+        margin: 0.75rem 0;
+        width: 22rem;
+        font-size: 0.9rem;
+    }
+
+    &__img {
+        width: 21rem;
+        margin-top: 1.25rem;
+    }
 }
