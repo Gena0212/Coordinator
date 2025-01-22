@@ -2,11 +2,11 @@
 
 .button {
     font-family: 'NunitoSans', sans-serif;
-    font-weight: 400;
+    font-weight: 700;
     font-size: 0.75rem;
     background-color: $primary-colour;
-    border: 1.5px solid $decenary-colour;
-    color: $septenary-colour;
+    border: 2px solid $secondary-colour;
+    color: $secondary-colour;
     padding: 0.1rem 0.35rem;
     width: fit-content;
     height: fit-content;
@@ -14,14 +14,17 @@
 
     &:hover {
         cursor: pointer;
+        background-color: $tertiary-colour;
+        color: $primary-colour;
+        border-color: $tertiary-colour;
+        font-weight: 400;
     }
     
     &--form{
         margin-top: 0.45rem;
-        padding: 0.6rem;
-        background-color: $secondary-colour;
-        color: $senary-colour;
-        border: none;
+        padding: 0.5rem;
+        // background-color: $secondary-colour;
+        // color: $senary-colour;
         font-size: 1.25rem;
         width: 100%;
     }

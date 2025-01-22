@@ -123,7 +123,7 @@ export default function RegisterForm(){
               />
             </div>
             <Button className='button--form' type="submit">Signup</Button>
-            {errorMessage && <p>{errorMessage}</p>}
+            {errorMessage && <p className="form__error">{errorMessage}</p>}
             {success && <p>Success! Redirecting to login page...</p>}
           </form>
         

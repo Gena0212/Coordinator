@@ -39,6 +39,7 @@ export default function UsersBar({groupData, setGroupData }) {
         // newObj[member.id] =  !isChecked[member.id];       
         // setIsChecked(newObj);
     };
+    console.log(groupData);
 
     return(
         <section className="users-bar">
@@ -46,14 +47,22 @@ export default function UsersBar({groupData, setGroupData }) {
             <section className="users-bar__users">
                 {groupData.map((member) => {
                         return (
-                            <div key={member.id} className="users-bar__user">
-                                <p className="users-bar__name">{`${member.firstName} ${member.lastName}`}</p>
-                                <input 
-                                    type="checkbox"
-                                    checked={member.isChecked}
-                                    onChange={() => handleChange(member)}
-                                />
-                            </div>
+                            <>
+                            {
+                                member.accept_invite === 1 ?
+                                <div key={member.id} className="users-bar__user">
+                                    <p className="users-bar__name">{`${member.firstName} ${member.lastName}`}</p>
+                                    <input 
+                                        type="checkbox"
+                                        checked={member.isChecked}
+                                        onChange={() => handleChange(member)}
+                                    />
+                                </div> :
+                                <div key={member.id} className="users-bar__user users-bar__user--inactive">
+                                    <p className="users-bar__name">{`${member.firstName} ${member.lastName}`}</p>
+                                </div>
+                            }
+                            </>
                         )
                 })}
             </section>

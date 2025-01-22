@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { emailRegex } from "../../../lib/regex";
 import axios from "axios";
 import Button from "../Button/Button";
+import './LoginForm.scss'
 
 
 export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
@@ -82,7 +83,7 @@ export default function LoginForm({formData, setFormData, setIsLoggedIn}) {
           />
         </div>
         <Button className='button--form' type="submit">Sign In</Button>
-        {errorMessage && <p>{errorMessage}</p>}
+        {errorMessage && <p className="form__error" >{errorMessage}</p>}
       </form>
     </>
   );

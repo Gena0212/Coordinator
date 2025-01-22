@@ -3,7 +3,8 @@
 
 .form {
     padding: 0 1.25rem;
-
+    width: 20rem;
+    
     &__group{
         @include flex(column, normal, normal);
     }
@@ -22,5 +23,9 @@
         &::placeholder {
             color: $undenary-colour ;
         }
+    }
+
+    &__error {
+        color: $septenary-colour;
     }
 }

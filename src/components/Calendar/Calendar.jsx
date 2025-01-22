@@ -15,12 +15,16 @@ function Calendar({groupData}){
             for (let i = 0; i < groupData.length; i ++){
                 const member = groupData[i];
                 if(member.isChecked){
-                    for (let j = 0; j < member.events.length; j ++){
-                        const event = member.events[j];
-                        let newObj = {}
-                        newObj['start'] = event.start.dateTime || event.start.date
-                        newObj['end'] = event.end.dateTime || event.end.date
-                        tempEventArray.push(newObj);
+                    if(member.events!==null){
+                        console.log(member.events)
+                        console.log('enter into if statement')
+                        for (let j = 0; j < member.events.length; j ++){
+                            const event = member.events[j];
+                            let newObj = {}
+                            newObj['start'] = event.start.dateTime || event.start.date
+                            newObj['end'] = event.end.dateTime || event.end.date
+                            tempEventArray.push(newObj);
+                        }
                     }
                 }
             }

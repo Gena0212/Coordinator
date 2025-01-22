@@ -30,7 +30,6 @@ function GroupPage({ groups, isModalOpen, setIsModalOpen, fetchGroups, userData}
             )
             setGroupData(response.data);
             setIsLoggedIn(true);
-            setIsLoading(false);
         } catch (error) {
             console.log(error)
             if (error.status === 401) {
@@ -39,11 +38,15 @@ function GroupPage({ groups, isModalOpen, setIsModalOpen, fetchGroups, userData}
         }
     }
     
-    // let events = []
-    
     useEffect(() => {
         fetchGroupDetails(id);
     }, []);
+    
+    useEffect(() => {
+        if (groupData.length !== 0){
+            setIsLoading(false);
+        }
+    }, [groupData])
 
     return(
         <>

@@ -13,7 +13,6 @@ export default function CreateGroupForm({fetchGroups, closeModal}){
       const [errMessage, setErrMessage] = useState('')
       
       const authToken = localStorage.getItem('authToken');
-      console.log(authToken);
 
 
     const handleInputChange = (e) => {
@@ -63,7 +62,6 @@ export default function CreateGroupForm({fetchGroups, closeModal}){
         }
     }
 
-    console.log(usersAdded);
 
     return(
         <form className="create-form">

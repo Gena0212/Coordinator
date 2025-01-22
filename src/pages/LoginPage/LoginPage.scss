@@ -2,12 +2,12 @@
 @use '../../styles/partials/mixins' as *;
 
 .login {
-    @include flex(column, space-between, normal);
+    @include flex(column, space-evenly, center);
     height: 24rem;
 
     &__title {
         margin-bottom: 0.4rem;
-        color: $nonary-colour;
+        color: $senary-colour;
     }
 
     &__link{
