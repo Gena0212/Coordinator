@@ -6,12 +6,18 @@
     @include flex(row, space-between, center);
     padding: 1.5rem 0.5rem 0.25rem 0rem;
     width: 100%;
+    background-color: $primary-colour;
 
-    &--loggedin{
-        background-color: $senary-colour;
+    &--loggedout {
+        justify-content: center;
     }
 
     &__logo {
         width: 18rem;
+
+        @include desktop{
+            width: 25rem;
+            margin: 2rem 0 0.5rem 0;
+        }
     }
 }

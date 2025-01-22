@@ -1,5 +1,34 @@
+@use "../../styles/partials/mixins" as *;
+
 .google{
-    width: 21rem;
-    margin-top: 3rem;
-    
+    @include flex(column, space-around, center);
+
+    &__h3{
+        margin-top: 1rem;
+
+        @include desktop {
+            @include desktop {
+                font-size: 1.75rem;
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    &__h4 {
+        font-weight: 400;
+        margin: 0.75rem 0;
+        width: 22rem;
+        font-size: 0.9rem;
+
+        @include desktop {
+            font-size: 1.5rem;
+            width: 60rem;
+            margin: 1.75rem 0;
+        }
+    }
+
+    &__img {
+        width: 21rem;
+        margin-top: 1.25rem;
+    }
 }

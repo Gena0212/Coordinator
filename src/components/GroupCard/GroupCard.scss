@@ -1,26 +1,45 @@
 @use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
 
 .group-card{
     display: flex;
-    background-color: $fifteenth-colour;
+    background-color: $primary-colour;
     border-radius: 1.5rem;
     border: 1px solid $decenary-colour;
-    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+
+    @include desktop {
+        padding: 0 0.5rem;
+        margin-left: 1rem;
+    }
 
     &__navlink{
         text-decoration: none;
-        color: $sixteenth-colour;
+        color: $duodenary-colour;
     }
+
     &__name {
         font-weight: 700;
         font-size: 1rem;
         margin: 0.25rem 0.25rem 0.25rem 0.75rem;
         white-space: nowrap;
+
+        @include desktop {
+            font-size: 1.5rem;
+        }
     }
 
     &__delete {
         width: 1rem;
         margin: 0 0.5rem;
+
+        @include desktop {
+            width: 1.25rem;
+        }
     }
 
 }
+
+.active {
+    color: $fifteenth-colour;
+  }

@@ -2,7 +2,7 @@
 @use '../../styles/partials/variables' as *;
 
 
-.form {
+.register-form {
     padding: 0 1.25rem;
     height: 30rem;
 
@@ -13,6 +13,10 @@
     &__label {
         margin-left: 0.5rem;
         align-self: flex-start;
+
+        @include desktop {
+            font-size: 1.25rem;
+        }
     }
 
     &__input {
@@ -24,9 +28,17 @@
         &::placeholder {
             color: $undenary-colour ;
         }
+
+        @include desktop {
+            font-size: 1.1rem;
+        }
     }
 
     &__error {
         color: $septenary-colour;
+
+        @include desktop {
+            font-size: 1.15rem;
+        }
     }
 }

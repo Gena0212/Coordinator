@@ -5,6 +5,10 @@
     @include flex(column, space-evenly, center);
     height: 35rem;
 
+    @include desktop{
+        margin-top: 1.5rem;
+    }
+
     &__title {
         margin-bottom: 0.4rem;
         color: $senary-colour;
@@ -12,12 +16,20 @@
 
     &__link{
         text-decoration: none;
-        color: $sixteenth-colour;
+        color: $nonary-colour;
         
         &:hover {
             cursor: pointer;
             color: $quinary-colour;
         }
+    }
+
+    &__text{
+        @include desktop {
+            font-size: 1.25rem;
+            margin-top: 5rem;
+        }
+    
     }
 
 }

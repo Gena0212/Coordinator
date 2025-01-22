@@ -40,7 +40,7 @@ function GroupPage({ groups, isModalOpen, setIsModalOpen, fetchGroups, userData}
     
     useEffect(() => {
         fetchGroupDetails(id);
-    }, []);
+    }, [id]);
     
     useEffect(() => {
         if (groupData.length !== 0){
@@ -59,7 +59,7 @@ function GroupPage({ groups, isModalOpen, setIsModalOpen, fetchGroups, userData}
                 <main className="main">
                     <GroupsBar groups={groups} setIsModalOpen={setIsModalOpen} fetchGroups={fetchGroups}/>
                     <UsersBar groupData={groupData} setGroupData={setGroupData}/>
-                    <section className="calendar">
+                    <section className="main__calendar">
                         <Calendar groupData={groupData}/>
                     </section>
                 </main>

@@ -2,24 +2,32 @@
 @use '../../styles/partials/mixins' as *;
 
 .list {
-    border-top: 1px solid $nonary-colour;
-
+    border-top: 0.5px solid $nonary-colour;
+    margin-top: 0.5rem;
+    
     &__item{
         margin: 0.25rem 0;
-        border-bottom: 1px solid $nonary-colour;
+        border-bottom: 0.5px solid $nonary-colour;
         width: 100%;
         padding: 0.25rem 0 0.5rem 0.5rem;
         @include flex(column, normal, flex-start);
         color: $duodenary-colour;
-    }
 
+    }
+    
     &__name {
         font-size: 0.9rem;
         margin: 0;
+        @include desktop{
+            font-size: 1.15rem;
+        }
     }
     
     &__email{
         font-size: 0.85rem ;
         margin: 0;
+        @include desktop{
+            font-size: 1.15rem;
+        }
     }
 }

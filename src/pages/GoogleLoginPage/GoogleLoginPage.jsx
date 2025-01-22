@@ -21,11 +21,14 @@ const GoogleLoginPage = ({formData}) => {
     }
     
     return(
-        <>
+        <section className='google'>
             <Header isLoggedIn={false}/>
-            <p>Please sign in with Google below:</p>
-            <img className='google' src={googleButton} alt='google sign in' onClick={()=> auth()}/>
-        </>
+            <h3 className='google__h3'>Please sign in with Google below:</h3>
+            <h4 className='google__h4'>Please note that this app only stores and displays the start and end times of events in your Google Calendar. Event locations, names, other invitees and any other personal information are not stored or displayed in this app to protect your privacy</h4>
+            <h4 className='google__h4'>Any changes made to your Google Calendar will only be made if you make them yourself.</h4>
+            <img className='google__img' src={googleButton} alt='google sign in' onClick={()=> auth()}/>
+        </section>
+        
     )
 }
 

@@ -3,11 +3,17 @@
 
 
 .fc { /* the calendar root */
-    max-width: 1100px;
+    max-width: 68.75rem;
     margin: 0 auto;
     height: 30rem;
     font-size: 0.78rem;
     font-weight: 400;
+
+    @include desktop {
+        max-width: 125rem;
+        font-size: 1.1rem;
+        height: 37rem;
+    }
 }
 
 :root {
@@ -27,6 +33,10 @@
     font-size: 1rem;
     white-space: nowrap;
     margin: 0 0.5rem;
+
+    @include desktop {
+        font-size: 1.75rem;
+    }
 }
 // .fc-col-header colgroup {
 //     width: 0.1rem;

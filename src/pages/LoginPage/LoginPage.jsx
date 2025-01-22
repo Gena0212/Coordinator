@@ -28,7 +28,7 @@ const LoginPage = ({formData, setFormData}) => {
             <h1 className='login__title'>Login</h1>
             <LoginForm formData={formData} setFormData={setFormData} setIsLoggedIn={setIsLoggedIn} />
             <Link className="login__link" to={'/'}>
-                <p>New to this app? Click here to register!</p>
+                <p className='login__text'>New to this app? Click here to register!</p>
             </Link>
           </section>
         </>

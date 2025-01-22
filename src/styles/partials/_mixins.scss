@@ -7,3 +7,16 @@
   }
   // e.g. @include flex (flex, column, space-between, flex-center)
   // e.g. @include flex (flex, row, normal, normal)
+
+  // media queries
+@mixin tablet {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1280px) {
+    @content;
+  }
+}

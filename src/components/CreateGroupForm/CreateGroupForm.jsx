@@ -17,6 +17,7 @@ export default function CreateGroupForm({fetchGroups, closeModal}){
 
     const handleInputChange = (e) => {
         setFormInputs({ ...formInputs, [e.target.name]: e.target.value });
+        setErrMessage('')
     };
 
     const handleSubmit = async (e) => {
