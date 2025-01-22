@@ -12,15 +12,22 @@
         padding: 0.25rem 0 0.5rem 0.5rem;
         @include flex(column, normal, flex-start);
         color: $duodenary-colour;
-    }
 
+    }
+    
     &__name {
         font-size: 0.9rem;
         margin: 0;
+        @include desktop{
+            font-size: 1.15rem;
+        }
     }
     
     &__email{
         font-size: 0.85rem ;
         margin: 0;
+        @include desktop{
+            font-size: 1.15rem;
+        }
     }
 }

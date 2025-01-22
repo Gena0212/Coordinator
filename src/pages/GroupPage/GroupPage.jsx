@@ -40,7 +40,7 @@ function GroupPage({ groups, isModalOpen, setIsModalOpen, fetchGroups, userData}
     
     useEffect(() => {
         fetchGroupDetails(id);
-    }, []);
+    }, [id]);
     
     useEffect(() => {
         if (groupData.length !== 0){

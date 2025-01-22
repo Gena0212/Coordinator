@@ -53,6 +53,13 @@
         width: 8rem;
         font-weight: 400;
         border: 1px solid $secondary-colour;
+
+        @include desktop {
+            font-size: 1.25rem;
+            width: 12rem;
+            padding: 0.1rem 1rem;
+            margin-left: 1.5rem;
+        }
     }
     &--accept{
         padding: 0.25rem 1rem;

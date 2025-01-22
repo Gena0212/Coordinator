@@ -28,6 +28,8 @@
 
     @include desktop {
         padding: 1.25rem;
+        height: 38rem;
+        border-radius: 3rem;
     }
 
     &__icon{

@@ -32,6 +32,10 @@
         overflow-y: scroll;
         overflow-x: hidden;
         height: 7rem;
+
+        @include desktop{
+            height: 10rem;
+        }
     }
 
 

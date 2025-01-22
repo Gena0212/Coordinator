@@ -10,6 +10,10 @@
     border-bottom: 0.5px solid $secondary-colour;
     border-top: 0.5px solid $secondary-colour;
 
+    @include desktop {
+        height: 7.75rem;
+    }
+
     &__header{
         @include flex(column, space-around, normal);
         margin: 1rem 0.75rem 1rem 0.75rem;
@@ -17,6 +21,11 @@
 
     &__title {
         white-space: nowrap;
+
+        @include desktop{
+            font-size: 1.9rem;
+            margin-left: 1rem;
+        }
     }
 
     &__items {
