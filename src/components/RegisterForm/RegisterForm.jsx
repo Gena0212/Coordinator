@@ -61,9 +61,9 @@ export default function RegisterForm(){
     };
 
     return (
-          <form className="form" onSubmit={handleSubmit}>
-            <div className="form__group">
-              <label htmlFor="firstName" className="form__label">First Name</label>
+          <form className="register-form" onSubmit={handleSubmit}>
+            <div className="register-form__group">
+              <label htmlFor="firstName" className="register-form__label">First Name</label>
               <input
                 type="text"
                 name="firstName"
@@ -71,11 +71,11 @@ export default function RegisterForm(){
                 placeholder="First Name"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.firstName}
-                className="form__input"
+                className="register-form__input"
               />
             </div>
-            <div className="form__group">
-              <label htmlFor="lastName" className="form__label">Last Name</label>
+            <div className="register-form__group">
+              <label htmlFor="lastName" className="register-form__label">Last Name</label>
               <input
                 type="text"
                 name="lastName"
@@ -83,11 +83,11 @@ export default function RegisterForm(){
                 placeholder="Last Name"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.lastName}
-                className="form__input"
+                className="register-form__input"
               />
             </div>
-            <div className="form__group">
-              <label htmlFor="emailRegister" className="form__label">Email linked to your google calendar:</label>
+            <div className="register-form__group">
+              <label htmlFor="emailRegister" className="register-form__label">Email linked to your google calendar:</label>
               <input
                 type="text"
                 name="email"
@@ -95,11 +95,11 @@ export default function RegisterForm(){
                 placeholder="Email"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.email}
-                className="form__input"
+                className="register-form__input"
               />
             </div>
-            <div className="form__group">
-              <label htmlFor="passwordRegister" className="form__label">Password</label>
+            <div className="register-form__group">
+              <label htmlFor="passwordRegister" className="register-form__label">Password</label>
               <input
                 type="password"
                 name="password"
@@ -107,11 +107,11 @@ export default function RegisterForm(){
                 placeholder="Password"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.password}
-                className="form__input"
+                className="register-form__input"
               />
             </div>
-            <div className="form__group">
-              <label htmlFor="confirmPasswordRegister" className="form__label">Confirm your password</label>
+            <div className="register-form__group">
+              <label htmlFor="confirmPasswordRegister" className="register-form__label">Confirm your password</label>
               <input
                 type="password"
                 name="confirmPassword"
@@ -119,11 +119,11 @@ export default function RegisterForm(){
                 placeholder="Re-Enter Password"
                 onChange={(e) => handleInputChange(e)}
                 value={formData.confirmPassword}
-                className="form__input"
+                className="register-form__input"
               />
             </div>
             <Button className='button--form' type="submit">Signup</Button>
-            {errorMessage && <p className="form__error">{errorMessage}</p>}
+            {errorMessage && <p className="register-form__error">{errorMessage}</p>}
             {success && <p>Success! Redirecting to login page...</p>}
           </form>
         

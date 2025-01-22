@@ -5,6 +5,14 @@
     @include flex(column, space-evenly, center);
     height: 24rem;
 
+    @include desktop{
+        height: 28.5rem;
+    }
+
+    @include desktop{
+        margin-top: 4rem;
+    }
+
     &__title {
         margin-bottom: 0.4rem;
         color: $senary-colour;
@@ -18,5 +26,12 @@
             cursor: pointer;
             color: $quinary-colour;
         }
+    }
+
+    &__text{
+        @include desktop {
+            font-size: 1.25rem;
+        }
+    
     }
 }

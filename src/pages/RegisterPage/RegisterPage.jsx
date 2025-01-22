@@ -12,7 +12,7 @@ export default function RegisterPage() {
                 <h1 className="register__title">Register</h1>
                 <RegisterForm/>
                 <Link className="register__link" to={'/login'}>
-                    <p>Already have an account? Click here to log in!</p>
+                    <p className="register__text">Already have an account? Click here to log in!</p>
                 </Link>
             </section>
         </>

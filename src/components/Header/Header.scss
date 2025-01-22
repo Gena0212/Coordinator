@@ -14,5 +14,10 @@
 
     &__logo {
         width: 18rem;
+
+        @include desktop{
+            width: 25rem;
+            margin: 2rem 0 0.5rem 0;
+        }
     }
 }
