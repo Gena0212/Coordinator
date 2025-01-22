@@ -9,23 +9,35 @@
         white-space: nowrap;
         font-size: 1rem;
         margin-left: 0.5rem;
+
+        @include desktop {
+            font-size: 1.5rem;
+            margin-left: 2.5rem;
+        }
     }
     &__users{
         overflow-y: scroll;
         @include flex(row, normal, center);
-    }
 
+    }
+    
     &__user{
         display: flex;
 
+        
         &--inactive {
             color: $sixteenth-colour;
         }
     }
-
+    
     &__name {
         white-space: nowrap;
         margin-left: 1rem;
         font-size: .875rem;
+
+        @include desktop {
+            font-size: 1.15rem;
+            margin-left: 1.75rem;
+        }
     }
 }
